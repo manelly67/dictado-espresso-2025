@@ -1,24 +1,31 @@
-<section class="set" >
-  <button>btn1</button>
-  <button>btn2</button>
-  <app-toggle-theme></app-toggle-theme>
+<section class="set">
+
+  <div class="tgButton">
+    <app-toggle-theme></app-toggle-theme>
+  </div>
+
+  <div class="centerDiv">
+    <button #btnSP id="btnSP" (click)="setSP()" title="exercises in Spanish"> {{btn1.toUpperCase()}} </button>
+    <button (click)="setPT()" title="exercises in Portuguese"> {{btn2.toUpperCase()}} </button>
+  </div>
+
 </section>
 
 
-<main >
-  <h1>titulo de prueba</h1>
+<main>
+  <h1>{{mainTitle}}</h1>
 
-  <p>texto de prueba</p>
+  <p>texto de prueba {{es}}</p>
 
- 
 
- 
+
+
 
   <!--  <section>
     <app-toggle-theme [(light)]='light'></app-toggle-theme>
   </section> -->
 
- 
+
 
   <nav>
     <a routerLink="/">Home</a>

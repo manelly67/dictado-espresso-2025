@@ -1,49 +1,241 @@
-.theme-light  {
-    --color-bg-first: #F2E3A9;
-    --color-base-text1: #369;
-    --color-base-text2: #444;
-    --color-a: #883606;
-    --color-a-hover: #ff8c00;
-    --color-text-button: #ffe3a0;
-    --color-bg-button: #301000;
+ /* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 
-}
+ html,
+ body,
+ div,
+ span,
+ applet,
+ object,
+ iframe,
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6,
+ p,
+ blockquote,
+ pre,
+ a,
+ abbr,
+ acronym,
+ address,
+ big,
+ cite,
+ code,
+ del,
+ dfn,
+ em,
+ img,
+ ins,
+ kbd,
+ q,
+ s,
+ samp,
+ small,
+ strike,
+ strong,
+ sub,
+ sup,
+ tt,
+ var,
+ b,
+ u,
+ i,
+ center,
+ dl,
+ dt,
+ dd,
+ ol,
+ ul,
+ li,
+ fieldset,
+ form,
+ label,
+ legend,
+ table,
+ caption,
+ tbody,
+ tfoot,
+ thead,
+ tr,
+ th,
+ td,
+ article,
+ aside,
+ canvas,
+ details,
+ embed,
+ figure,
+ figcaption,
+ footer,
+ header,
+ hgroup,
+ menu,
+ nav,
+ output,
+ ruby,
+ section,
+ summary,
+ time,
+ mark,
+ audio,
+ video,
+ input {
+     margin: 0;
+     padding: 0;
+     border: 0;
+     font-size: 100%;
+     font: inherit;
+     vertical-align: baseline;
+ }
 
-.theme-dark {
-    --color-bg-first: #37556d;
-    --color-base-text1: #fff3d0;
-    --color-base-text2: #fff3d0;
-    --color-a: #A2BED2;
-    --color-a-hover: #ff8c00;
-    --color-text-button: #883606;
-    --color-bg-button: #e6dec7;
-}
+ /* HTML5 display-role reset for older browsers */
+ article,
+ aside,
+ details,
+ figcaption,
+ figure,
+ footer,
+ header,
+ hgroup,
+ menu,
+ nav,
+ section {
+     display: block;
+ }
 
-body {
-    color: var(--color-base-text1);
-    background-color: var(--color-bg-first);
-    transition: background-color 0.3s ease, color 0.3s ease;
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-}
+ body {
+     line-height: 1;
+ }
 
-p {
-    color: var(--color-base-text2);
-}
+ ol,
+ ul {
+     list-style: none;
+ }
 
-a {
-    color: var(--color-a);
-    text-decoration: none;
-}
+ blockquote,
+ q {
+     quotes: none;
+ }
 
-a:hover {
-    color: var(--color-a-hover);
-}
+ blockquote:before,
+ blockquote:after,
+ q:before,
+ q:after {
+     content: '';
+     content: none;
+ }
 
-button {
-    color: var(--color-text-button);
-    background-color: var(--color-bg-button);
-    width: fit-content;
-    padding: 0.4rem;
-}
+ table {
+     border-collapse: collapse;
+     border-spacing: 0;
+ }
+
+ /* end of reset of style browser */
+
+
+
+
+ .theme-light {
+     --color-bg-first: #F2E3A9;
+     --color-base-text1: #369;
+     --color-base-text2: #444;
+     --color-a: #883606;
+     --color-a-hover: #ff8c00;
+     --color-text-button: #ffe3a0;
+     --color-bg-button: #301000;
+     --color-bg-main-button: #369;
+     --color-shadow:#c7c6c6;
+
+ }
+
+ .theme-dark {
+     --color-bg-first: #37556d;
+     --color-base-text1: #fff3d0;
+     --color-base-text2: #fff3d0;
+     --color-a: #A2BED2;
+     --color-a-hover: #ff8c00;
+     --color-text-button: #883606;
+     --color-bg-button: #e6dec7;
+     --color-bg-main-button: #e6dec7;
+     --color-shadow:#494848;
+ }
+
+ body {
+     color: var(--color-base-text1);
+     background-color: var(--color-bg-first);
+     transition: background-color 0.3s ease, color 0.3s ease;
+     width: 100vw;
+     height: 100vh;
+     position: relative;
+ }
+
+ p {
+     color: var(--color-base-text2);
+ }
+
+ a {
+     color: var(--color-a);
+     text-decoration: none;
+ }
+
+ a:hover {
+     color: var(--color-a-hover);
+ }
+
+ button {
+     color: var(--color-text-button);
+     background-color: var(--color-bg-button);
+     width: fit-content;
+     padding: 0.4rem;
+ }
+
+ /* letters size*/
+
+ p {
+    font-size: 1.1em;
+    line-height: 1.1;
+  }
+
+ h1 {
+     font-size: 2.5em;
+     line-height: 1.1;
+ }
+
+ h2 {
+     font-size: 1.9em;
+     line-height: 1.1;
+ }
+
+ h3 {
+     font-size: 1.6em;
+     line-height: 1.1;
+ }
+
+ h4 {
+     font-size: 1.3em;
+     line-height: 1.1;
+ }
+
+ @media screen and (max-width: 980px) {
+     h1 {
+         font-size: 2.3em;
+     }
+
+     h2 {
+         font-size: 1.9em;
+     }
+
+     h3 {
+         font-size: 1.4em;
+     }
+
+     h4 {
+         font-size: 1.2em;
+     }
+
+ }
