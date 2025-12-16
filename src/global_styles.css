@@ -1,1 +1,49 @@
-/* Add application styles & imports to this file! */
+.theme-light  {
+    --color-bg-first: #F2E3A9;
+    --color-base-text1: #369;
+    --color-base-text2: #444;
+    --color-a: #883606;
+    --color-a-hover: #ff8c00;
+    --color-text-button: #ffe3a0;
+    --color-bg-button: #301000;
+
+}
+
+.theme-dark {
+    --color-bg-first: #37556d;
+    --color-base-text1: #fff3d0;
+    --color-base-text2: #fff3d0;
+    --color-a: #A2BED2;
+    --color-a-hover: #ff8c00;
+    --color-text-button: #883606;
+    --color-bg-button: #e6dec7;
+}
+
+body {
+    color: var(--color-base-text1);
+    background-color: var(--color-bg-first);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+p {
+    color: var(--color-base-text2);
+}
+
+a {
+    color: var(--color-a);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--color-a-hover);
+}
+
+button {
+    color: var(--color-text-button);
+    background-color: var(--color-bg-button);
+    width: fit-content;
+    padding: 0.4rem;
+}

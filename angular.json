@@ -26,7 +26,11 @@
             }
           },
           "options": {
-            "assets": [],
+            "assets": [
+              { "glob": "**/*", "input": "./assets/", "output": "./assets/" },
+              { "glob": "favicon.ico", "input": "./", "output": "./" },
+              { "glob": "mdi.svg", "input": "./node_modules/@mdi/angular-material", "output": "./assets" }
+            ],
             "index": "src/index.html",
             "browser": "src/main.ts",
             "outputPath": "dist/demo",
