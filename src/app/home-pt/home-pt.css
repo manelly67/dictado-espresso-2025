@@ -1,0 +1,47 @@
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    width: calc(100vw * 0.85);
+    min-height: 100%;
+    min-width: 280px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+@media screen and (max-width: 720px) {
+
+
+    main {
+        margin-top: 60px;
+    }
+
+
+}
+
+@media screen and (min-width: 721px) {
+
+    main {
+        margin-top: 1px;
+        width: calc(100vw * 0.72);
+    }
+
+}
+
+.selectBtn {
+    background-color: var(--color-bg-main-button);
+    border: 0px;
+    font-size: 14px;
+    box-shadow: var(--color-shadow) 1px 1px 1px 1px;
+}
+
+.center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    gap: 15px;
+}

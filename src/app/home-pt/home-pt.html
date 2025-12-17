@@ -1,0 +1,14 @@
+
+<app-top-in-page [es]="es" [pt]="pt" [mainTitle]="mainTitle"></app-top-in-page>
+
+
+<main>
+  <div class="center">
+    <button class="selectBtn" (click)="setSP()" title="exercises in Spanish"> {{btn1.toUpperCase()}} </button>
+    <button class="selectBtn" (click)="setPT()" title="exercises in Portuguese"> {{btn2.toUpperCase()}} </button>
+  </div>
+
+  <div class="center">
+    <app-barra-navegacion [es]="es" [pt]="pt"></app-barra-navegacion>
+  </div> 
+</main>
