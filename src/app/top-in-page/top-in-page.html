@@ -1,0 +1,15 @@
+<div class="topSection">
+    <section class="set">
+
+        <div class="tgButton">
+            <app-toggle-theme></app-toggle-theme>
+        </div>
+
+        <div class="centerDiv">
+            <button [ngClass]="es ? 'ON' : 'OFF'" class="buttonES"> {{btn1.toUpperCase()}} </button>
+            <button [ngClass]="pt ? 'ON' : 'OFF'" class="buttonPT"> {{btn2.toUpperCase()}} </button>
+        </div>
+
+    </section>
+    <h1>{{mainTitle}}</h1>
+</div>

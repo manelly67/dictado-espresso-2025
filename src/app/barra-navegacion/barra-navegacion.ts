@@ -10,11 +10,12 @@ import { MsgCateg } from '../msg-categ';
 })
 export class BarraNavegacion {
 
-  @Input() es?:boolean; 
-  @Input() pt?:boolean;
+  @Input() es?: boolean;
+  @Input() pt?: boolean;
+  lang?: string;
 
-   
-  constructor(public msgCateg: MsgCateg) {  }
+  constructor(public msgCateg: MsgCateg ) { }
+
   categoria = this.msgCateg.categoria;
   categorias = this.msgCateg.captarCategorias();
 

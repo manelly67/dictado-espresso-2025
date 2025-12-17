@@ -1,45 +1,32 @@
-<section class="set">
 
-  <div class="tgButton">
-    <app-toggle-theme></app-toggle-theme>
-  </div>
-
-  <div class="centerDiv">
-    <button [ngClass]="es ? 'ON' : 'OFF'" class="buttonES" > {{btn1.toUpperCase()}} </button>
-    <button [ngClass]="pt ? 'ON' : 'OFF'" class="buttonPT" > {{btn2.toUpperCase()}} </button>
-  </div>
-
-</section>
+<app-top-in-page [es]="es" [pt]="pt" [mainTitle]="mainTitle"></app-top-in-page>
 
 
 <main>
-  <h1>{{mainTitle}}</h1>
   <div class="center">
-    <button class="selectBtn"  (click)="setSP()" title="exercises in Spanish"> {{btn1.toUpperCase()}} </button>
-    <button class="selectBtn"   (click)="setPT()" title="exercises in Portuguese"> {{btn2.toUpperCase()}} </button>
+    <button class="selectBtn" (click)="setSP()" title="exercises in Spanish"> {{btn1.toUpperCase()}} </button>
+    <button class="selectBtn" (click)="setPT()" title="exercises in Portuguese"> {{btn2.toUpperCase()}} </button>
   </div>
-  
 
-  <app-barra-navegacion [es]="es" [pt]="pt" ></app-barra-navegacion>
-
-
-
-
-
-
-  <nav>
-    <a routerLink="/">Home</a>
-
-  </nav>
-
-
+  <div class="center">
+    <app-barra-navegacion [es]="es" [pt]="pt"></app-barra-navegacion>
+  </div> 
 </main>
 
 
-<aside>
+
+
+
+
+
+
+
+
+
+<!-- <aside>
 
 </aside>
 
 <footer>
   <a routerLink="/about">About</a>
-</footer>
+</footer> -->

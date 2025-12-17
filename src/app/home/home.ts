@@ -1,48 +1,57 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { NgClass } from '@angular/common';
-import { ToggleTheme } from '../toggle-theme/toggle-theme';
+import { RouterLink, Router} from '@angular/router';
+import { TopInPage } from '../top-in-page/top-in-page';
 import { BarraNavegacion } from '../barra-navegacion/barra-navegacion';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink,NgClass ,ToggleTheme, BarraNavegacion],
+  imports: [RouterLink, TopInPage, BarraNavegacion],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
+
 export class Home implements OnInit {
 
-  btn1:string="español";
-  btn2:string="portugués";
+  btn1: string = "español";
+  btn2: string = "portugués";
 
-  es:boolean=true;
-  pt:boolean=false;
-  mainTitle:string="";
+  es?: boolean;
+  pt?: boolean;
+  mainTitle: string = "";
+
+  constructor(public router: Router) { }
+ 
 
   ngOnInit() {
-    // Apply initial theme
+    // Initial title
+    if(!this.es){
+      this.es=true;
+      this.pt=false;
+    }
     this.setContent();
   }
 
-  setContent(){
-    if(this.es){
-     this.mainTitle = "Exercises to practice the Spanish language"
+  setContent() {
+    if (this.es) {
+      this.mainTitle = "Exercises to practice the Spanish language"
     }
-    if(this.pt){
+    if (this.pt) {
       this.mainTitle = "Exercises to practice the Portuguese language"
+      this.router.navigate(['/pt']);        
     }
   }
 
-  setSP(){
+
+  setSP() {
     this.es = true;
     this.pt = false;
     this.setContent();
   }
 
-  setPT(){
+  setPT() {
     this.pt = true;
     this.es = false;
     this.setContent();
   }
-  
+
 }

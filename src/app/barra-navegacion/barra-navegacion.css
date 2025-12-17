@@ -6,7 +6,19 @@ nav {
 
 nav>div {
     padding-top: 5%;
+}
 
+nav>div>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+    border-radius: 6px;
+    box-shadow: var(--color-shadow) 2px 2px 4px 2px;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-right: 1%;
+    min-width: 280px;
 }
 
 @media screen and (max-width: 900px) {
@@ -42,10 +54,12 @@ nav>p {
     padding: 1%;
 }
 
-li {
-    padding: 1%;
+nav>div>div>p{
+    margin-left: 15px;
 }
+
 
 a {
     font-size: 1.1rem;
+    margin-left: 20px;
 }
