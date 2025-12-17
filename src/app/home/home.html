@@ -5,8 +5,8 @@
   </div>
 
   <div class="centerDiv">
-    <button #btnSP id="btnSP" (click)="setSP()" title="exercises in Spanish"> {{btn1.toUpperCase()}} </button>
-    <button (click)="setPT()" title="exercises in Portuguese"> {{btn2.toUpperCase()}} </button>
+    <button [ngClass]="es ? 'ON' : 'OFF'" class="buttonES" > {{btn1.toUpperCase()}} </button>
+    <button [ngClass]="pt ? 'ON' : 'OFF'" class="buttonPT" > {{btn2.toUpperCase()}} </button>
   </div>
 
 </section>
@@ -14,15 +14,16 @@
 
 <main>
   <h1>{{mainTitle}}</h1>
-  <p>texto de prueba {{es}}</p>
+  <div class="center">
+    <button class="selectBtn"  (click)="setSP()" title="exercises in Spanish"> {{btn1.toUpperCase()}} </button>
+    <button class="selectBtn"   (click)="setPT()" title="exercises in Portuguese"> {{btn2.toUpperCase()}} </button>
+  </div>
+  
+
+  <app-barra-navegacion [es]="es" [pt]="pt" ></app-barra-navegacion>
 
 
 
-
-
-  <!--  <section>
-    <app-toggle-theme [(light)]='light'></app-toggle-theme>
-  </section> -->
 
 
 

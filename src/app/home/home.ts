@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { NgClass } from '@angular/common';
 import { ToggleTheme } from '../toggle-theme/toggle-theme';
+import { BarraNavegacion } from '../barra-navegacion/barra-navegacion';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, ToggleTheme],
+  imports: [RouterLink,NgClass ,ToggleTheme, BarraNavegacion],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

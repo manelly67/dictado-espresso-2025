@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, Output, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgIcon } from '@ng-icons/core';
 
 import { DOCUMENT, NgClass } from '@angular/common';
@@ -13,15 +13,10 @@ import { Renderer2 } from '@angular/core';
 })
 export class ToggleTheme implements OnInit {
 
-  /*  @Input() light?:boolean; 
-   @Output() lightChange = new EventEmitter<boolean>();
-   nameIcon:string= this.light? 'featherMoon' : 'featherSun';
- 
-   */
 
   theme = 'theme-light';
-  light:boolean = true;
-  nameIcon:string= this.light? 'featherMoon' : 'featherSun';
+  light: boolean = true;
+  nameIcon: string = this.light ? 'featherMoon' : 'featherSun';
 
   constructor(
     @Inject(DOCUMENT) private document: Document,
@@ -42,10 +37,10 @@ export class ToggleTheme implements OnInit {
     this.toggleIcon();
   }
 
-  toggleIcon(){
-    let newIcon = this.light ? false: true;
+  toggleIcon() {
+    let newIcon = this.light ? false : true;
     this.light = newIcon;
-    this.nameIcon = this.light? 'featherMoon' : 'featherSun';
+    this.nameIcon = this.light ? 'featherMoon' : 'featherSun';
   }
 
   private updateBodyClass() {
