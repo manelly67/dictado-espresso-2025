@@ -1,0 +1,22 @@
+main>nav {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    padding: 3%;
+    font-size: large;
+
+}
+
+.capitalize{
+   text-transform: capitalize;
+}
+
+@media screen and (min-width: 721px) {
+
+    main>div {
+        margin-top: 3%;
+    }
+
+}

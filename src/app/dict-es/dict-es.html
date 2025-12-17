@@ -1,9 +1,22 @@
-<app-top-in-page [es]="es" [pt]="pt"
-                 [mainTitle]="mainTitle"
-></app-top-in-page>
+<app-top-in-page [es]="es" [pt]="pt" [mainTitle]="mainTitle"></app-top-in-page>
 
-
-<p>{{categ}}</p>
+<main>
   <nav>
     <a routerLink="/">Home</a>
+    <a (click)="goBack()">Go Back</a>
+    @if(arr){
+    <a (click)="navigateToA()" > {{arr[0].text}}</a>
+    <a (click)="navigateToB()" >{{arr[1].text}}</a>
+    }
   </nav>
+  <div>
+    @if(filterObj){
+    <p class="capitalize">{{filterObj.modo}}</p>
+    <p>{{filterObj.nivel.toUpperCase()}}</p>
+    }
+  </div>
+
+
+
+
+</main>
