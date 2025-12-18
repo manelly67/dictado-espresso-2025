@@ -13,6 +13,14 @@ main>nav {
    text-transform: capitalize;
 }
 
+.audio-set{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
 @media screen and (min-width: 721px) {
 
     main>div {

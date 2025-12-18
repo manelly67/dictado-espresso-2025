@@ -5,10 +5,11 @@ import { TopInPage } from '../top-in-page/top-in-page';
 import { Categoria } from '../categoria';
 import { MsgCateg } from '../msg-categ';
 import { LETRASDEAUDIOSPT } from '../LETRASDEAUDIOSPT';
+import { Esfera } from '../esfera/esfera';
 
 @Component({
   selector: 'app-dict-pt',
-  imports: [RouterLink,TopInPage],
+  imports: [RouterLink,TopInPage,Esfera],
   templateUrl: './dict-pt.html',
   styleUrl: './dict-pt.css',
 })
@@ -57,6 +58,12 @@ export class DictPT implements OnInit{
       const filtered = LETRASDEAUDIOSPT.filter((e)=> e.nivel===arg);
       return filtered.length;
      }
+
+     getNumbers(): number[] {
+      return Array.from({ length: this.amountAud }, (_, i) => i + 1);
+    }
+
+    
   
      /* functions necessary for reload the page by new params */
     goBack(): void {

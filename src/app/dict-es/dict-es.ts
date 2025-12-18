@@ -5,10 +5,11 @@ import { TopInPage } from '../top-in-page/top-in-page';
 import { Categoria } from '../categoria';
 import { MsgCateg } from '../msg-categ';
 import { LETRASDEAUDIOS } from '../LETRASDEAUDIOS';
+import { Esfera } from '../esfera/esfera';
 
 @Component({
   selector: 'app-dict-es',
-  imports: [RouterLink, TopInPage],
+  imports: [RouterLink, TopInPage, Esfera],
   templateUrl: './dict-es.html',
   styleUrl: './dict-es.css',
 })
@@ -58,6 +59,10 @@ export class DictES implements OnInit {
   getAmountAudios(arg:string):number{
    const filtered = LETRASDEAUDIOS.filter((e)=> e.nivel===arg);
    return filtered.length;
+  }
+
+  getNumbers(): number[] {
+    return Array.from({ length: this.amountAud }, (_, i) => i + 1);
   }
 
    /* functions necessary for reload the page by new params */

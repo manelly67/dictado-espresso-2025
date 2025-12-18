@@ -150,7 +150,8 @@
      --color-bg-button: #301000;
      --color-bg-main-button: #369;
      --color-shadow:#c7c6c6;
-
+     --color-sphere-1: #1aff00;
+     --color-sphere-2: #009BC2;
  }
 
  .theme-dark {
@@ -163,6 +164,8 @@
      --color-bg-button: #e6dec7;
      --color-bg-main-button: #e6dec7;
      --color-shadow:#494848;
+     --color-sphere-1: #009BC2;
+     --color-sphere-2: #ab00c2;
  }
 
  body {
