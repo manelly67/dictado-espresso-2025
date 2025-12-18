@@ -65,6 +65,10 @@ export class DictES implements OnInit {
     return Array.from({ length: this.amountAud }, (_, i) => i + 1);
   }
 
+  getSelected(arg:number){
+   this.nro=arg;
+  }
+
    /* functions necessary for reload the page by new params */
   goBack(): void {
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {

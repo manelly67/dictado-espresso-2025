@@ -8,6 +8,6 @@ import { NgClass } from '@angular/common';
   styleUrl: './esfera.css',
 })
 export class Esfera {
-@Input() ix?:number;
+  @Input() ix?: number;
 
 }

@@ -13,13 +13,16 @@
     @if(filterObj){
     <p class="capitalize">{{filterObj.modo}}</p>
     <p>{{filterObj.nivel.toUpperCase()}}</p>
+    <p><kbd>select your sphere</kbd></p>
     }
   </div>
 
 
   <section class="audio-set">
     @for (num of getNumbers(); track num) {
-      <app-esfera [ix]=num ></app-esfera>
+      <button (click)="getSelected(num)">
+        <app-esfera [ix]=num ></app-esfera>
+      </button>
     }
   </section>
 
