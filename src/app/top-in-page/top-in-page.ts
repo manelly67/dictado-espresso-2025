@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { ToggleTheme } from '../toggle-theme/toggle-theme';
 
+
 @Component({
   selector: 'app-top-in-page',
   imports: [NgClass,ToggleTheme],

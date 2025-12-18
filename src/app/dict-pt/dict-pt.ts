@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { TopInPage } from '../top-in-page/top-in-page';
 import { Categoria } from '../categoria';
 import { MsgCateg } from '../msg-categ';
+import { LETRASDEAUDIOSPT } from '../LETRASDEAUDIOSPT';
 
 @Component({
   selector: 'app-dict-pt',
@@ -18,11 +19,14 @@ export class DictPT implements OnInit{
   categ?: number;
   filterObj?: Categoria;
   arrOpt = [
-    { id: 11, url: "/dictadoEs/11", text: 'Beginner' },
-    { id: 12, url: "/dictadoEs/12", text: 'Intermediate' },
-    { id: 13, url: "/dictadoEs/13", text: 'Advanced' }
+    { id: 11, url: "/dictadoPt/11", text: 'Beginner', nivelinservice: 'principiantept'  },
+    { id: 12, url: "/dictadoPt/12", text: 'Intermediate', nivelinservice: 'intermediopt'  },
+    { id: 13, url: "/dictadoPt/13", text: 'Advanced', nivelinservice: 'avanzadopt'  }
   ];
-  arr?: Array<{ id: number, url: string, text: string }>;
+  arr?: Array<{ id: number, url: string, text: string, nivelinservice: string }>;
+  nivel?:string;
+  nro:number=0;
+  amountAud:number=0;
 
   constructor(
     public route: ActivatedRoute,
@@ -39,8 +43,20 @@ export class DictPT implements OnInit{
         this.categ = Number(categGet);
         [this.filterObj] = this.categorias.filter((e) => e.id === this.categ);
         this.arr = this.arrOpt.filter((e) => e.id !== this.categ);
+        this.nivel = this.getNivelForService();
+        this.amountAud = this.getAmountAudios(this.nivel);
       }
     }
+
+    getNivelForService(){
+      const [filtered] = this.arrOpt.filter((e) => e.id === this.categ);
+      return filtered.nivelinservice;
+    }
+
+    getAmountAudios(arg:string):number{
+      const filtered = LETRASDEAUDIOSPT.filter((e)=> e.nivel===arg);
+      return filtered.length;
+     }
   
      /* functions necessary for reload the page by new params */
     goBack(): void {
@@ -52,11 +68,12 @@ export class DictPT implements OnInit{
     navigateToA(): void{
       if(this.arr){
         const newRoute= this.arr[0].url;
-        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+         this.router.navigateByUrl('/', { skipLocationChange: false }).then(() => {
           this.router.navigate([newRoute]);
         });
       }
      }
+     
      navigateToB(): void{
       if(this.arr){
         const newRoute= this.arr[1].url;

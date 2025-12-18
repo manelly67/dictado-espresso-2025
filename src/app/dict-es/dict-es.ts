@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { TopInPage } from '../top-in-page/top-in-page';
 import { Categoria } from '../categoria';
 import { MsgCateg } from '../msg-categ';
+import { LETRASDEAUDIOS } from '../LETRASDEAUDIOS';
 
 @Component({
   selector: 'app-dict-es',
@@ -18,11 +19,14 @@ export class DictES implements OnInit {
   categ?: number;
   filterObj?: Categoria;
   arrOpt = [
-    { id: 1, url: "/dictadoEs/1", text: 'Beginner' },
-    { id: 2, url: "/dictadoEs/2", text: 'Intermediate' },
-    { id: 3, url: "/dictadoEs/3", text: 'Advanced' }
+    { id: 1, url: "/dictadoEs/1", text: 'Beginner', nivelinservice: 'principiante' },
+    { id: 2, url: "/dictadoEs/2", text: 'Intermediate', nivelinservice: 'intermedio' },
+    { id: 3, url: "/dictadoEs/3", text: 'Advanced', nivelinservice: 'avanzado' }
   ];
-  arr?: Array<{ id: number, url: string, text: string }>;
+  arr?: Array<{ id: number, url: string, text: string, nivelinservice:string }>;
+  nivel?:string;
+  nro:number=0;
+  amountAud:number=0;
 
   constructor(
     public route: ActivatedRoute,
@@ -34,13 +38,26 @@ export class DictES implements OnInit {
   categoria = this.msgCateg.categoria;
   categorias = this.msgCateg.captarCategorias();
 
+
   ngOnInit() {
     const categGet = this.route.snapshot.paramMap.get('categ');
     if (categGet) {
       this.categ = Number(categGet);
       [this.filterObj] = this.categorias.filter((e) => e.id === this.categ);
       this.arr = this.arrOpt.filter((e) => e.id !== this.categ);
+      this.nivel = this.getNivelForService();
+      this.amountAud = this.getAmountAudios(this.nivel);
     }
+  }
+
+  getNivelForService(){
+    const [filtered] = this.arrOpt.filter((e) => e.id === this.categ);
+    return filtered.nivelinservice;
+  }
+
+  getAmountAudios(arg:string):number{
+   const filtered = LETRASDEAUDIOS.filter((e)=> e.nivel===arg);
+   return filtered.length;
   }
 
    /* functions necessary for reload the page by new params */
