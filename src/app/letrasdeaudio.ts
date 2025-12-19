@@ -2,7 +2,7 @@ export interface Letrasdeaudio {
 
     nivel: string;
     nro: number;
-    fraseES: string;
+    frase: string;
     fraseEN: string;
 
 }
