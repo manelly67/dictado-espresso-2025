@@ -4,6 +4,8 @@ import { Home } from './home/home';
 import { HomePT } from './home-pt/home-pt';
 import { DictPT } from './dict-pt/dict-pt';
 import { DictES } from './dict-es/dict-es';
+import { DictBase } from './dict-base/dict-base';
+import { ErrorPage } from './error-page/error-page';
 
 import { About } from './about/about';
 
@@ -29,4 +31,11 @@ export const APP_ROUTES: Routes = [
     path: 'dictadoPt/:categ',
     loadComponent: () => import('./dict-pt/dict-pt').then((m) => m.DictPT),
   },
+  {
+    path: 'dictado/:categ/:nivel/:nro/:lang',
+    loadComponent: () => import('./dict-base/dict-base').then((m) => m.DictBase),
+  },
+
+
+  { path: '**', component: ErrorPage },
 ];

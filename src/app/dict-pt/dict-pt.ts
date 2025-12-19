@@ -26,7 +26,6 @@ export class DictPT implements OnInit{
   ];
   arr?: Array<{ id: number, url: string, text: string, nivelinservice: string }>;
   nivel?:string;
-  nro:number=0;
   amountAud:number=0;
 
   constructor(
@@ -63,9 +62,12 @@ export class DictPT implements OnInit{
       return Array.from({ length: this.amountAud }, (_, i) => i + 1);
     }
 
-    getSelected(arg:number){
-      this.nro=arg;
-     }
+    
+  /*path: 'dictado/:nivel/:nro/:lang', */
+  navigateToSelected(arg:number){
+     const selectAudioRoute = `/dictado/${this.categ}/${this.nivel}/${arg}/pt`;
+     this.router.navigate([selectAudioRoute]);
+    }
   
      /* functions necessary for reload the page by new params */
     goBack(): void {

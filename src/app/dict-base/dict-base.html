@@ -1,0 +1,25 @@
+<app-top-in-page [es]="es" [pt]="pt" [mainTitle]="mainTitle"></app-top-in-page>
+
+<main>
+    <nav>
+        <a routerLink={{homeRoute}}>Home</a>
+        <a (click)="goBack()">Go Back</a>
+    </nav>
+    <section >
+        @if(filterObj){
+        <p>{{filterObj.idioma.toUpperCase()}}</p>
+        <p class="capitalize">{{filterObj.modo}}</p>
+        <p>{{filterObj.nivel.toUpperCase()}}</p>
+        <p class="capitalize">Audio {{nro}}</p>
+        }
+
+        @if(pathToAudio){
+        <app-audio [pathToAudio]="pathToAudio"></app-audio>
+        }
+        @if(!pathToAudio){
+        <p>nothing to display</p>
+        }
+    </section>
+
+
+</main>

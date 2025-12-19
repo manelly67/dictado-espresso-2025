@@ -1,0 +1,8 @@
+<audio class="formatoAudio" controls src={{pathToAudio}} type="audio" (error)="onAudioError()">
+</audio>
+
+@if( audioError){
+<div class="error-message">
+    {{ audioError }}
+</div>
+}

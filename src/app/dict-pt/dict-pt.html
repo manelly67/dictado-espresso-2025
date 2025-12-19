@@ -19,7 +19,7 @@
 
   <section class="audio-set">
     @for (num of getNumbers(); track num) {
-      <button (click)="getSelected(num)">
+      <button (click)="navigateToSelected(num)">
         <app-esfera [ix]=num ></app-esfera>
       </button>
     }
