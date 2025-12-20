@@ -38,7 +38,7 @@
         }
 
         @if(!divfortype){
-        <section>
+        <section >
             <div>
                 <div style="padding-bottom: 10px;">
                     <p class="subtitle">this was your answer:</p>
@@ -51,7 +51,7 @@
                 [percentAciertos]="percentAciertos" [mostrarIndicador]="mostrarIndicador"></app-comparison>
 
             @if(audiolyrics){
-            <div>
+            <div style="padding-bottom: 20px;">
                 <div>
                     <p class="subtitle">the answer is:</p>
                     <p class="frase">{{audiolyrics.frase}}</p>
@@ -62,6 +62,8 @@
                 </div>
             </div>
             }
+
+            <button class="next" (click)="navigateToNext()">NEXT AUDIO</button>
         </section>
         }
 

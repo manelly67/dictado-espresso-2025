@@ -79,7 +79,7 @@ export class CompararS {
       if (arg2 === 100) {
         mostrarIndicador = '\u2713';
       } else {
-        mostrarIndicador = 'X';
+        mostrarIndicador = '\u270D';
       }
     }
     return mostrarIndicador;

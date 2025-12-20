@@ -1,13 +1,12 @@
-@if(percentAciertos!==100){
-<div>
-    <div class="blackboard">
-        @for (item of nuevoArray; track item) {
-        <p [ngClass]="item.includes(')')? 'wrong':'good'">{{item}}</p>
-        }
-    </div>
-</div>
-}
 
+@if(percentAciertos!==100){
+    <div class="board">
+        <p class="corrections">{{mostrarIndicador}}</p>
+     @for (item of nuevoArray; track item) {
+            <p [ngClass]="item.includes(')')? 'wrong':'good'">{{item}}</p>
+            } 
+    </div>
+}
 
 
 @if(percentAciertos===100){

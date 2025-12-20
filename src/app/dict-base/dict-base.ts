@@ -116,10 +116,6 @@ export class DictBase implements OnInit {
     this.texto2 = 'No has escrito datos para comparar';
   }
 
-  goBack(): void {
-    this.location.back();
-  }
-
   guardarSeleccion(frase: string): string | undefined {
     // prepare the lyrics for match - remove ? and turn all to uppercase
     if (frase) {
@@ -177,6 +173,33 @@ export class DictBase implements OnInit {
   toogleSection() {
     const newSection = this.divfortype ? false : true;
     this.divfortype = newSection;
+  }
+
+  /* functions necessary for reload the page by new params */
+  goBack(): void {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.location.back();
+    });
+  }
+
+  /*path: 'dictado/:nivel/:nro/:lang', */
+  navigateToNext() {
+    if (this.nro) {
+      const nextNro = this.nro + 1;
+      if (this.es) {
+        const selectAudioRoute = `/dictado/${this.categ}/${this.nivel}/${nextNro}/es`;
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigate([selectAudioRoute]);
+        });
+
+      }
+      if (this.pt) {
+        const selectAudioRoute = `/dictado/${this.categ}/${this.nivel}/${nextNro}/pt`;
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigate([selectAudioRoute]);
+        });
+      }
+    }
   }
 
 }
