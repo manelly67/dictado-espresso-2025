@@ -49,4 +49,17 @@ export class DefinirAudio {
     return letrasdeaudiospt;
   }
 
+  getAmountAudios(arg1:string,arg2:string):number{
+    let nro = 0;
+    if(arg2==='es'){
+      const filtered = LETRASDEAUDIOS.filter((e)=> e.nivel===arg1);
+      nro = filtered.length;
+    }
+    if(arg2==='pt'){
+      const filtered = LETRASDEAUDIOSPT.filter((e)=> e.nivel===arg1);
+      nro = filtered.length;
+    }
+    return nro;
+   }
+
 }

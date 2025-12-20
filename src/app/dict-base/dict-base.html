@@ -38,7 +38,7 @@
         }
 
         @if(!divfortype){
-        <section >
+        <section style="padding-bottom: 5%;">
             <div>
                 <div style="padding-bottom: 10px;">
                     <p class="subtitle">this was your answer:</p>
@@ -62,13 +62,12 @@
                 </div>
             </div>
             }
-
-            <button class="next" (click)="navigateToNext()">NEXT AUDIO</button>
+            @if(showNext){
+                <button class="next" (click)="navigateToNext()">NEXT AUDIO</button>
+            }
+           
         </section>
         }
-
-
-
 
     </div>
 

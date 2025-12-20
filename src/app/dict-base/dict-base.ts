@@ -38,6 +38,8 @@ export class DictBase implements OnInit {
   audiolyrics?: Letrasdeaudio | Letrasdeaudiopt;
   respuesta: string = "";
   lyricsToMatch?: string;
+  amountsAudios:number=0;
+  showNext?:boolean;
   /*text in html */
   texto1: string = '';
   texto2: string = '';
@@ -80,6 +82,8 @@ export class DictBase implements OnInit {
       this.pathToAudio = this.definirAudio.definirAudio(this.nivel, this.nro);
       this.audiolyrics = this.definirAudio.getLyrics(lang, this.nivel, this.nro);
       this.lyricsToMatch = this.guardarSeleccion(this.audiolyrics.frase);
+      this.amountsAudios = this.definirAudio.getAmountAudios(this.nivel,lang);
+      this.showNext = this.defineNextBtn(this.amountsAudios,this.nro);
     }
     //borra los textos anteriores - ingresados por el usuario- para comenzar un nuevo ingreso de texto
     this.respuesta = this.clear.clear(this.respuesta);
@@ -114,6 +118,10 @@ export class DictBase implements OnInit {
   esFn() {
     this.texto1 = 'Esta es tu respuesta';
     this.texto2 = 'No has escrito datos para comparar';
+  }
+
+  defineNextBtn(arg1:number,arg2:number):boolean{
+    return arg2<arg1 ? true : false;
   }
 
   guardarSeleccion(frase: string): string | undefined {
