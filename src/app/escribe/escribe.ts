@@ -12,13 +12,13 @@ import { Clear } from '../clear';
   styleUrl: './escribe.css',
 })
 export class Escribe implements OnInit {
-  
+
   @Output() guardartexto = new EventEmitter();
   @Input() es?: boolean;
   @Input() pt?: boolean;
   @Input() nivel?: string;
   forclass: string = "";
-  texto1:string="";
+  texto1: string = "";
   letra: string = "";
   arrayprov: string = '';
   arraytexto: string = "";
@@ -27,8 +27,7 @@ export class Escribe implements OnInit {
   /* el texto se va incorporando en el array desde el teclado y las teclas de caracteres especiales   */
 
 
-  constructor(/* 
-    public compararService: CompararService,	 */
+  constructor(
     public escribeService: EscribeS,
     public clear: Clear,
   ) { }
@@ -40,18 +39,17 @@ export class Escribe implements OnInit {
     }
   }
 
-  definirTextos(){
-    if (this.es == true){
+  definirTextos() {
+    if (this.es == true) {
       this.texto1 = 'Escribe tu respuesta y [ENTER] ';
-     /*  this.comparar.label2 = 'Esta es tu respuesta:'; */
-      }else{
-      if (this.pt == true){
-      this.texto1 = 'Escreva a sua resposta e [ENTER] ';
-     /*  this.comparar.label2 = 'Esta é a tua resposta:'; */
-      }}
+    } else {
+      if (this.pt == true) {
+        this.texto1 = 'Escreva a sua resposta e [ENTER] ';
+      }
+    }
   }
 
-  onKey2(event: any) { // without type info
+  onKey2(event: any) {
     this.arraytexto = event.target.value;
   }
 
@@ -140,16 +138,6 @@ export class Escribe implements OnInit {
     this.arraytexto = this.clear.clear(this.arraytexto);
     this.escribeService.textodefinitivo = this.clear.clear(this.escribeService.textodefinitivo);
   };
-
-
-
-  /* 	this.array = this.clearService.clearArray(this.array);
-    this.arraytexto = this.clearService.clear(this.arraytexto);
-    this.tecladoService.textodefinitivo = this.clearService.clear(this.tecladoService.textodefinitivo);
-    this.compararService.nuevoArray = this.clearService.clearArray(this.compararService.nuevoArray);
-    this.compararService.contar = this.clearService.clearNro(this.compararService.contar);
-    this.compararService.percentAciertos = this.clearService.clearNro(this.compararService.percentAciertos);
-    this.compararService.mostrarIndicador = this.clearService.clear(this.compararService.mostrarIndicador); */
 
 
 

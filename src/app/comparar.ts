@@ -60,29 +60,29 @@ export class CompararS {
     return good;
   }
 
-  porcentaje<Type>(arg1:string[],arg2:number):number{
-    let percentAciertos=0;
-    if (arg1[0]==''){
-    percentAciertos = 0;                                             // si no ha escrito palabras el array está vacio y cuenta 0 aciertos (mensaje emitido)
-    }else{
-    percentAciertos = (arg2/arg1.length)*100;
+  porcentaje<Type>(arg1: string[], arg2: number): number {
+    let percentAciertos = 0;
+    if (arg1[0] == '') {
+      percentAciertos = 0;                                             // si no ha escrito palabras el array está vacio y cuenta 0 aciertos (mensaje emitido)
+    } else {
+      percentAciertos = (arg2 / arg1.length) * 100;
     }
     return percentAciertos;
-    }
-    
-    
-    indicador<Type>(arg1:string[],arg2:number):string{
+  }
+
+
+  indicador<Type>(arg1: string[], arg2: number): string {
     let mostrarIndicador = '';
-    if (arg1[0]===''){
-    mostrarIndicador = '';                                             // si no ha escrito palabras el array está vacio y no emite indicador (mensaje emitido)
-    }else{
-      if (arg2===100){
-      mostrarIndicador = '\u2713';
-      }else{
-      mostrarIndicador = 'X';
+    if (arg1[0] === '') {
+      mostrarIndicador = '';                                             // si no ha escrito palabras el array está vacio y no emite indicador (mensaje emitido)
+    } else {
+      if (arg2 === 100) {
+        mostrarIndicador = '\u2713';
+      } else {
+        mostrarIndicador = 'X';
       }
-      }
-    return mostrarIndicador;
     }
+    return mostrarIndicador;
+  }
 
 }

@@ -9,10 +9,11 @@ button{
 }
 
 div{
-    width: 315px;
+    width: 215px;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center;
     gap:1%;
+    margin: 0 auto;
 }

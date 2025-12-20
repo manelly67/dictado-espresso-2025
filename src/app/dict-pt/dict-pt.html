@@ -11,14 +11,15 @@
   </nav>
   <div>
     @if(filterObj){
+      <h2>{{filterObj.nivel.toUpperCase()}}</h2>
       <p class="capitalize">{{filterObj.modo}}</p>
       <p>{{filterObj.nivel.toUpperCase()}}</p>
-      <p><kbd>select your sphere</kbd></p>
+      <p><kbd>select one</kbd></p>
       }
   </div>
 
   <section class="audio-set">
-    @for (num of getNumbers(); track num) {
+     @for (num of getNumbers(); track num) {
       <button (click)="navigateToSelected(num)">
         <app-esfera [ix]=num ></app-esfera>
       </button>

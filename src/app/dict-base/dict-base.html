@@ -14,31 +14,61 @@
             <p>{{filterObj.nivel.toUpperCase()}}</p>
             <p class="capitalize">Audio {{nro}}</p>
             }
-    
+
             @if(pathToAudio){
             <app-audio [pathToAudio]="pathToAudio"></app-audio>
             }
             @if(!pathToAudio){
-            <p>{{texto4}}</p>
+            <p>{{texto2}}</p>
             }
 
             @if(mensajedealerta!==""){
-                <p class="alert">{{mensajedealerta}}</p>
-                <p class="alert">NO DATA TO COMPARE</p>
+            <p class="alert">{{mensajedealerta}}</p>
+            <p class="alert">NO DATA TO COMPARE</p>
             }
         </section>
-        
-    
+
+        @if(divfortype){
         <section>
             @if(pathToAudio){
             <app-escribe [es]="es" [pt]="pt" [nivel]="nivel"
-            (guardartexto)="onGuardartexto();comparar()"
-            ></app-escribe>
+                (guardartexto)="onGuardartexto();comparar();toogleSection()"></app-escribe>
             }
         </section>
-    
+        }
+
+        @if(!divfortype){
+        <section>
+            <div>
+                <div style="padding-bottom: 10px;">
+                    <p class="subtitle">this was your answer:</p>
+                    <p class="frase">{{respuesta}}</p>
+                </div>
+            </div>
+           
+
+            <app-comparison [es]="es" [pt]="pt" [nuevoArray]="nuevoArray" [aciertos]="aciertos"
+                [percentAciertos]="percentAciertos" [mostrarIndicador]="mostrarIndicador"></app-comparison>
+
+            @if(audiolyrics){
+            <div>
+                <div>
+                    <p class="subtitle">the answer is:</p>
+                    <p class="frase">{{audiolyrics.frase}}</p>
+                </div>
+                <div>
+                    <p class="subtitle">and it means:</p>
+                    <p class="frase">{{audiolyrics.fraseEN}}</p>
+                </div>
+            </div>
+            }
+        </section>
+        }
+
+
+
 
     </div>
-    
+
 
 </main>

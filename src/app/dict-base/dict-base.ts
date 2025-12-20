@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { TopInPage } from '../top-in-page/top-in-page';
 import { Audio } from '../audio/audio';
 import { Escribe } from '../escribe/escribe';
+import { Comparison } from '../comparison/comparison';
 
 import { Categoria } from '../categoria';
 import { MsgCateg } from '../msg-categ';
@@ -18,7 +19,7 @@ import { CompararS } from '../comparar';
 
 @Component({
   selector: 'app-dict-base',
-  imports: [TopInPage, Audio, Escribe, RouterLink],
+  imports: [TopInPage, Audio, Escribe, Comparison, RouterLink],
   templateUrl: './dict-base.html',
   styleUrl: './dict-base.css',
 })
@@ -26,6 +27,7 @@ export class DictBase implements OnInit {
 
   es?: boolean;
   pt?: boolean;
+  divfortype?: boolean;
   categ?: number;
   filterObj?: Categoria;
   mainTitle?: string;
@@ -39,7 +41,7 @@ export class DictBase implements OnInit {
   /*text in html */
   texto1: string = '';
   texto2: string = '';
-  texto3: string = '';
+  texto3: { a: string, b: string } = { a: "", b: "" };
   texto4: string = '';
   texto5: string = '';
   mensajedealerta: string = "";
@@ -64,6 +66,7 @@ export class DictBase implements OnInit {
     const lang = this.route.snapshot.paramMap.get('lang');
     const getNro = this.route.snapshot.paramMap.get('nro');
     const categGet = this.route.snapshot.paramMap.get('categ');
+    this.divfortype = true;
     if (categGet) {
       this.categ = Number(categGet);
       [this.filterObj] = this.categorias.filter((e) => e.id === this.categ);
@@ -104,19 +107,13 @@ export class DictBase implements OnInit {
 
   // para definir el idioma de las instrucciones 
   ptFn() {
-    this.texto1 = 'Gerar';
-    this.texto2 = 'Ocultar resposta';
-    this.texto3 = 'Mostrar resposta';
-    this.texto4 = 'Não foi gerado áudio';
-    this.texto5 = 'Não escreveu dados para comparação';
+    this.texto1 = 'Esta é a tua resposta';
+    this.texto2 = 'Não escreveu dados para comparação';
   }
 
   esFn() {
-    this.texto1 = 'Generar';
-    this.texto2 = 'Ocultar respuesta';
-    this.texto3 = 'Mostrar respuesta';
-    this.texto4 = 'No has generado un audio';
-    this.texto5 = 'No has escrito datos para comparar';
+    this.texto1 = 'Esta es tu respuesta';
+    this.texto2 = 'No has escrito datos para comparar';
   }
 
   goBack(): void {
@@ -144,10 +141,10 @@ export class DictBase implements OnInit {
 
   mensaje(): string {
     if (this.guardartexto.palabraseleccionada == '') {
-      return this.texto4;
+      return this.texto1;
     } else {
       if (this.guardartexto.textodefinitivo == '') {
-        return this.texto5;
+        return this.texto2;
       } else {
         return "";
       }
@@ -160,6 +157,7 @@ export class DictBase implements OnInit {
   aciertos: number = 0;
   percentAciertos: number = 0;
   mostrarIndicador: string = '';
+
   comparar() {
     this.mensajedealerta = this.mensaje();
     do {
@@ -176,6 +174,9 @@ export class DictBase implements OnInit {
 
   }
 
+  toogleSection() {
+    const newSection = this.divfortype ? false : true;
+    this.divfortype = newSection;
+  }
+
 }
-
-

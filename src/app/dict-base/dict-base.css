@@ -8,13 +8,29 @@ main>nav {
     font-size: large;
 }
 
-main>section {
+section {
     padding: 5%;
     max-width: 385px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
 }
 
 .capitalize {
     text-transform: capitalize;
+}
+.subtitle {
+    color: var(--color-base-text1);
+    font-size: larger;
+    font-weight: 600;
+    padding: 1%;
+}
+.subtitle::first-letter{
+    text-transform: uppercase;
+}
+.frase{
+    margin-left: 3%;
 }
 
 main>div {
