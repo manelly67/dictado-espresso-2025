@@ -5,23 +5,40 @@
         <a routerLink={{homeRoute}}>Home</a>
         <a (click)="goBack()">Go Back</a>
     </nav>
-    <section >
-        @if(filterObj){
-        <p>{{filterObj.idioma.toUpperCase()}}</p>
-        <p class="capitalize">{{filterObj.modo}}</p>
-        <p>{{filterObj.nivel.toUpperCase()}}</p>
-        <p class="capitalize">Audio {{nro}}</p>
-        }
 
-        @if(pathToAudio){
-        <app-audio [pathToAudio]="pathToAudio"></app-audio>
-        }
-        @if(!pathToAudio){
-        <p>{{texto4}}</p>
-        }
-    </section>
-   
+    <div>
+        <section>
+            @if(filterObj){
+            <p>{{filterObj.idioma.toUpperCase()}}</p>
+            <p class="capitalize">{{filterObj.modo}}</p>
+            <p>{{filterObj.nivel.toUpperCase()}}</p>
+            <p class="capitalize">Audio {{nro}}</p>
+            }
+    
+            @if(pathToAudio){
+            <app-audio [pathToAudio]="pathToAudio"></app-audio>
+            }
+            @if(!pathToAudio){
+            <p>{{texto4}}</p>
+            }
+
+            @if(mensajedealerta!==""){
+                <p class="alert">{{mensajedealerta}}</p>
+                <p class="alert">NO DATA TO COMPARE</p>
+            }
+        </section>
+        
+    
+        <section>
+            @if(pathToAudio){
+            <app-escribe [es]="es" [pt]="pt" [nivel]="nivel"
+            (guardartexto)="onGuardartexto();comparar()"
+            ></app-escribe>
+            }
+        </section>
     
 
+    </div>
+    
 
 </main>

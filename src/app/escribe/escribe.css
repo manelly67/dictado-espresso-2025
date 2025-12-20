@@ -1,0 +1,24 @@
+textarea {
+    width: 300px;
+    border-radius: 16px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 6);
+    margin: 2%;
+    font-size: 22px;
+    padding: 2%;
+}
+
+.pr{
+    height: 100px;
+}
+
+.in{
+    height: 200px;
+}
+
+.av{
+    height: 300px;
+}
+
+div {
+    align-content: center;
+}

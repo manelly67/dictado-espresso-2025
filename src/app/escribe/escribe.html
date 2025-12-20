@@ -1,0 +1,19 @@
+<div>
+	<p>{{texto1}}</p>
+	<textarea class={{forclass}} [value]="arraytexto" (keyup)="onKey2($event)" (blur)="actualizar()"
+		(keyup.enter)="actualizar2();guardartexto.emit();borrar()"></textarea>
+	@if(es){
+	<app-teclado-es class="teclado" (notifyA1)="onNotifyA1()" (notifyA2)="onNotifyA2()" (notifyA3)="onNotifyA3()"
+		(notifyA4)="onNotifyA4()" (notifyC)="onNotifyC()" (notifyE1)="onNotifyE1()" (notifyE2)="onNotifyE2()"
+		(notifyI)="onNotifyI()" (notifyO1)="onNotifyO1()" (notifyO2)="onNotifyO2()" (notifyO3)="onNotifyO3()"
+		(notifyU1)="onNotifyU1()" (notifyU2)="onNotifyU2()" (notifyN)="onNotifyN()" (notifyInterr)="onNotifyInterr()"
+		(notifyExclam)="onNotifyExclam()"></app-teclado-es>
+	}
+	@if(pt){
+	<app-teclado-pt class="teclado" (notifyA1)="onNotifyA1()" (notifyA2)="onNotifyA2()" (notifyA3)="onNotifyA3()"
+		(notifyA4)="onNotifyA4()" (notifyC)="onNotifyC()" (notifyE1)="onNotifyE1()" (notifyE2)="onNotifyE2()"
+		(notifyI)="onNotifyI()" (notifyO1)="onNotifyO1()" (notifyO2)="onNotifyO2()" (notifyO3)="onNotifyO3()"
+		(notifyU1)="onNotifyU1()" (notifyU2)="onNotifyU2()" (notifyN)="onNotifyN()" (notifyInterr)="onNotifyInterr()"
+		(notifyExclam)="onNotifyExclam()"></app-teclado-pt>
+	}
+</div>

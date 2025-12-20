@@ -8,20 +8,32 @@ main>nav {
     font-size: large;
 }
 
-main > section{
+main>section {
     padding: 5%;
     max-width: 385px;
 }
 
-.capitalize{
-   text-transform: capitalize;
+.capitalize {
+    text-transform: capitalize;
 }
 
+main>div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+}
 
 @media screen and (min-width: 721px) {
 
     main>div {
+        width: 100%;
         margin-top: 3%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
     }
 
 }
