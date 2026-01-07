@@ -5,6 +5,7 @@ import { HomePT } from './home-pt/home-pt';
 import { DictPT } from './dict-pt/dict-pt';
 import { DictES } from './dict-es/dict-es';
 import { DictBase } from './dict-base/dict-base';
+import { VerbBase } from './verb-base/verb-base';
 import { ErrorPage } from './error-page/error-page';
 
 import { About } from './about/about';
@@ -34,6 +35,10 @@ export const APP_ROUTES: Routes = [
   {
     path: 'dictado/:categ/:nivel/:nro/:lang',
     loadComponent: () => import('./dict-base/dict-base').then((m) => m.DictBase),
+  },
+  {
+    path: 'verbs/:lang',
+    loadComponent: () => import('./verb-base/verb-base').then((m) => m.VerbBase),
   },
 
 
