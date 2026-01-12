@@ -1,3 +1,7 @@
+span {
+    color:var(--color-base-text1);
+}
+
 main>nav {
     width: 100%;
     display: flex;
@@ -8,23 +12,72 @@ main>nav {
     font-size: large;
 }
 
-main>div {
-    width: 100%;
+.buttonsDiv{
+    padding: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 25px;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+fieldset, section{
+   padding: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+fieldset>div{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.centerDiv{
+    padding: 2%;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 @media screen and (min-width: 721px) {
 
-    main>div {
-        width: 100%;
-        margin-top: 3%;
-        display: flex;
+    .buttonsDiv{
+        padding: 0;
+        width: 95%;
+        display:flex;
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-around;
+        justify-content:space-between;
     }
 
+    fieldset, section{
+        padding: 2%;
+        width: 95%;
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+.subtitle {
+    color: var(--color-base-text1);
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 1%;
+}
+.subtitle::first-letter{
+    text-transform: uppercase;
+}
+.frase{
+    margin-left: 3%;
+    font-size: 1.2rem;
 }

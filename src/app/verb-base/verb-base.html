@@ -6,4 +6,133 @@
         <a (click)="goBack()">Go Back</a>
     </nav>
 
+    @if(tenseDiv){
+    <section>
+        <p>{{texto4}}/ Select a verbal tense</p>
+        <fieldset>
+            @for (item of tiemposverbales; track item ) {
+            <div>
+                <input id=`temps-{{$index+1}}` type="radio" name="temp" value={{item}} (click)="onKey($event)" />
+                <label for=`temps-{{$index+1}}`>{{ item }}</label>
+            </div>
+            }
+        </fieldset>
+    </section>
+    }
+
+
+    <!-- <p>la seleccion es {{tiempoSeleccionado}}</p>
+    <p>part 1 {{tiempoAjustado}}</p>
+    <p>part 2 {{tiempoAjustado2}}</p> 
+ <p>los numeros son {{numeroGenerado}} -{{numeroGeneradogrupo1}} -{{numeroGenerado2}}</p>
+    <p>el sujeto es {{sujetoString}}-{{conjugSujeto}}-{{grupodeVerbos}}</p>
+    <p>el verbo es {{verboString}} - {{ArErIr}} - {{baseVerbo}} - {{verboConjugado}}</p>
+ <p>el verbo es {{verboString}} - {{ArErIr}} - {{baseVerbo}} - {{verboConjugado}}</p>
+-->
+
+
+
+    @if(activarBoton){
+    <div>
+        <p>The verbal tense is:</p>
+        <p>{{texto6}} <span>{{tiempoSeleccionado.toUpperCase()}}</span></p>
+    </div>
+
+    <div class="centerDiv">
+        <p>{{texto3}}</p>
+        <button
+            (click)="generarNumero(); generarSujetos(); generarVerbos();asignarRespuesta();toggleActivarBoton()">GENERATE
+            VERBS</button>
+    </div>
+
+    }
+
+
+
+    @if(sujetoString !== ''){
+    <section>
+        <div>
+            <p>The verbal tense is: <span>{{tiempoSeleccionado.toUpperCase()}}</span></p>
+        </div>
+    </section>
+
+    <section>
+        <div>
+            <p>The subject is: <span>{{sujetoString.toUpperCase()}}</span></p>
+        </div>
+        <div>
+            <p>The verb is: <span>{{verboString.toUpperCase()}}</span></p>
+        </div>
+    </section>
+    <section>
+        <div>
+            <p><span>Write ONLY THE VERB in its correct conjugation</span></p>
+        </div>
+    </section>
+    @if(mensajedealerta!==""){
+    <p class="alert">{{mensajedealerta}}</p>
+    <p class="alert">NO DATA TO COMPARE</p>
+    }
+
+
+    @if(divfortype){
+    <section>
+        <app-escribe [es]="es" [pt]="pt" [nivel]="nivel" (guardartexto)="handleAnswer()"></app-escribe>
+    </section>
+    }
+
+
+    @if(mensajedealerta===""){
+
+    @if(!divfortype){
+      <section style="padding-bottom: 5%;">
+
+        <div>
+            <div style="padding-bottom: 10px;">
+                <p class="subtitle">this was your answer:</p>
+                <p class="frase">{{respuesta}}</p>
+            </div>
+        </div>
+
+        <app-comparison [es]="es" [pt]="pt" [nuevoArray]="nuevoArray" [aciertos]="aciertos"
+            [percentAciertos]="percentAciertos" [mostrarIndicador]="mostrarIndicador"></app-comparison>
+
+        </section>
+
+        <section>
+            @if(verboConjugado){
+                <div style="padding-bottom: 20px;">
+                    <div>
+                        <p class="subtitle">The correct verb conjugation is:</p>
+                        <p class="frase">{{verboConjugado}}</p>
+                    </div>
+                    <div>
+                        <p class="subtitle">The phrase is:</p>
+                        <p class="capitalize frase">{{sujetoString.toUpperCase()}} {{verboConjugado}}</p>
+                    </div>
+                </div>
+                }
+           </section>
+
+           <section>
+            <div class="buttonsDiv">
+                <button
+                (click)="resetPrev();toogleSection();generarNumero(); generarSujetos(); generarVerbos();asignarRespuesta()"
+                >Next Verb - Same Verbal Tense</button>
+                <button
+                (click)="resetPrev();toogleSection();toggleTenseDiv()"
+                >I Want Change Verbal Tense</button>
+            </div>
+
+           </section>
+       
+        }
+      
+      }
+
+    }
+
+
+
+
 </main>

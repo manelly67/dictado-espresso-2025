@@ -43,9 +43,7 @@ export class DictBase implements OnInit {
   /*text in html */
   texto1: string = '';
   texto2: string = '';
-  texto3: { a: string, b: string } = { a: "", b: "" };
-  texto4: string = '';
-  texto5: string = '';
+ 
   mensajedealerta: string = "";
 
   constructor(
@@ -144,10 +142,10 @@ export class DictBase implements OnInit {
   }
 
   mensaje(): string {
-    if (this.guardartexto.palabraseleccionada == '') {
+    if (this.guardartexto.palabraseleccionada === '') {
       return this.texto1;
     } else {
-      if (this.guardartexto.textodefinitivo == '') {
+      if (this.guardartexto.textodefinitivo === '') {
         return this.texto2;
       } else {
         return "";
@@ -174,7 +172,7 @@ export class DictBase implements OnInit {
       this.percentAciertos = this.compararS.porcentaje(this.nuevoArray, this.aciertos);
       this.mostrarIndicador = this.compararS.indicador(this.nuevoArray, this.percentAciertos);
       return;
-    } while (this.mensajedealerta == '');
+    } while (this.mensajedealerta === '');
 
   }
 
