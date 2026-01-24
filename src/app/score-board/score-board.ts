@@ -52,7 +52,6 @@ export class ScoreBoard implements OnInit {
     this.isData = this.myScore.data.length === 0 ? false : true;
     if (this.isData) {
      this.consolidate = this.myScore.getConsolidateData();
-     console.log(this.consolidate);
      if(this.consolidate["ES"]["summaryES"].length>0){
       this.tableForEs=true;
       this.categsForEs=this.myScore.categoriesForES;

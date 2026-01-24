@@ -202,12 +202,12 @@
  /* letters size*/
 
  p {
-    font-size: 1.1em;
+    font-size: 1.5rem;
     line-height: 1.1;
   }
 
 .alert{
-    font-size: 1.1em;
+    font-size: 1.1rem;
     line-height: 1.1;
     color: green;
     font-weight: 700;
@@ -215,22 +215,22 @@
 }
 
  h1 {
-     font-size: 2.3em;
+     font-size: 2.3rem;
      line-height: 1.1;
  }
 
  h2 {
-     font-size: 1.9em;
+     font-size: 1.9rem;
      line-height: 1.1;
  }
 
  h3 {
-     font-size: 1.6em;
+     font-size: 1.6rem;
      line-height: 1.1;
  }
 
  h4 {
-     font-size: 1.3em;
+     font-size: 1.3rem;
      line-height: 1.1;
  }
 
@@ -241,24 +241,24 @@
  
  @media screen and (max-width: 980px) {
     p {
-        font-size: 1.2em;
+        font-size: 1.2rem;
         line-height: 1.2;
       }
 
      h1 {
-         font-size: 2.1em;
+         font-size: 2.1rem;
      }
 
      h2 {
-         font-size: 1.9em;
+         font-size: 1.9rem;
      }
 
      h3 {
-         font-size: 1.4em;
+         font-size: 1.4rem;
      }
 
      h4 {
-         font-size: 1.2em;
+         font-size: 1.2rem;
      }
 
  }

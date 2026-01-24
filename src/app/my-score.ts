@@ -7,10 +7,10 @@ import { Point } from './point';
 export class MyScore implements OnInit {
 
   data: Point[] = [];
-  categoriesForES: string[] =[];
-  categoriesForPT: string[] =[];
-  subCategForES:string[] =[];
-  subCategForPT:string[] =[];
+  categoriesForES: string[] = [];
+  categoriesForPT: string[] = [];
+  subCategForES: string[] = [];
+  subCategForPT: string[] = [];
 
   ngOnInit(): void {
     this.getFromLocalStorage();
@@ -31,56 +31,8 @@ export class MyScore implements OnInit {
     let consolidate: any = new Object();
     consolidate = { "ES": {}, "PT": {} };
 
-    /* const esArr: Point[] = this.data.filter((e) => e.language === 'es'); 
-     const ptArr: Point[] = this.data.filter((e) => e.language === 'pt');
-    */
-    const esArr: Point[] = [
-      {
-        "date": "2026-01-21",
-        "language": "es",
-        "category": "AUDIOS - write what you hear",
-        "subcategory": "beginner/ principiante",
-        "percent": 100
-      },
-      {
-        "date": "2026-01-19",
-        "language": "es",
-        "category": "Verbos Regulares",
-        "subcategory": "Futuro",
-        "percent": 100
-      },
-      {
-        "date": "2026-01-15",
-        "language": "es",
-        "category": "Verbos Regulares",
-        "subcategory": "Presente",
-        "percent": 0
-      }
-    ];
-
-    const ptArr: Point[] = [
-      {
-        "date": "2026-01-20",
-        "language": "pt",
-        "category": "ÁUDIOS - write what you hear",
-        "subcategory": "intermediate/ intermédio",
-        "percent": 100
-      },
-      {
-        "date": "2026-01-17",
-        "language": "pt",
-        "category": "Verbos Regulares",
-        "subcategory": "Futuro do Presente",
-        "percent": 0
-      },
-      {
-        "date": "2026-01-17",
-        "language": "pt",
-        "category": "ÁUDIOS - write what you hear",
-        "subcategory": "intermediate/ intermédio",
-        "percent": 33.33333333333333
-      }
-    ];
+    const esArr: Point[] = this.data.filter((e) => e.language === 'es');
+    const ptArr: Point[] = this.data.filter((e) => e.language === 'pt');
 
 
     if (esArr.length > 0) {
@@ -97,13 +49,6 @@ export class MyScore implements OnInit {
       const summaryPT = this.createObjES(ptArr, this.categoriesForPT, 'summaryPT');
       consolidate["PT"] = summaryPT;
     }
-
-
-
-    console.log(esArr);
-    console.log(ptArr);
-
- 
 
     return consolidate;
   }
@@ -124,7 +69,7 @@ export class MyScore implements OnInit {
           const score = this.getDetailScore(e, f, g, array);
           categArr.push({
             "category": e,
-            "nrocol": e.includes('write')? 6 : (e.includes('Verb')? 4 : 0),
+            "nrocol": e.includes('write') ? 6 : (e.includes('Verb') ? 4 : 0),
             "subcategory": f,
             "date": g,
             "total": score.total,
@@ -137,7 +82,6 @@ export class MyScore implements OnInit {
       });
     });
     obj[`${summary}`] = categArr;
-    console.log(obj);
     return obj;
   }
 
