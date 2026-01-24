@@ -4,6 +4,8 @@ import { Location } from '@angular/common';
 import { Point } from '../point';
 import { MyScore } from '../my-score';
 import { TopInPage } from '../top-in-page/top-in-page';
+import { Aside } from '../aside/aside';
+import { Footer } from '../footer/footer';
 import { EStiemposverbales } from '../tiemposverbales-es';
 import { PTtiemposverbales } from '../tiemposverbales-pt';
 import { FieldSumPipe } from '../field-sum-pipe';
@@ -11,7 +13,7 @@ import { SearchFilterPipe } from '../search-filter-pipe';
 
 @Component({
   selector: 'app-score-board',
-  imports: [RouterLink, TopInPage,FieldSumPipe,SearchFilterPipe],
+  imports: [RouterLink, TopInPage, Aside, Footer, FieldSumPipe, SearchFilterPipe],
   templateUrl: './score-board.html',
   styleUrl: './score-board.css',
 })
@@ -23,18 +25,18 @@ export class ScoreBoard implements OnInit {
   title?: string;
   text1?: string;
   data: Point[] = [];
-  isData: boolean=false;
+  isData: boolean = false;
   consolidate: any = new Object();
-  tableForEs:boolean=false;
-  tableForPt:boolean=false;
-  categsForEs:string[]=[];
-  categsForPt:string[]=[];
-  subcategsForEs:string[]=[];
-  subcategsForPt:string[]=[];
-  audioSubCategEs:string[]=["beginner/ principiante","intermediate/ intermedio","advanced/ avanzado"];
-  verbSubCategEs:string[]=EStiemposverbales;
-  audioSubCategPt:string[]=["beginner/ principiante","intermediate/ intermédio","advanced/ avançado"];
-  verbSubCategPt:string[]=PTtiemposverbales;
+  tableForEs: boolean = false;
+  tableForPt: boolean = false;
+  categsForEs: string[] = [];
+  categsForPt: string[] = [];
+  subcategsForEs: string[] = [];
+  subcategsForPt: string[] = [];
+  audioSubCategEs: string[] = ["beginner/ principiante", "intermediate/ intermedio", "advanced/ avanzado"];
+  verbSubCategEs: string[] = EStiemposverbales;
+  audioSubCategPt: string[] = ["beginner/ principiante", "intermediate/ intermédio", "advanced/ avançado"];
+  verbSubCategPt: string[] = PTtiemposverbales;
 
   constructor(
     public route: ActivatedRoute,
@@ -52,7 +54,7 @@ export class ScoreBoard implements OnInit {
     }
   }
 
- 
+
   setTopByLang(arg: string) {
     if (arg === 'es') {
       this.es = true;
@@ -80,30 +82,30 @@ export class ScoreBoard implements OnInit {
     this.text1 = 'não há dados para mostrar';
   }
 
-  handleTheData(updated:Point[]){
+  handleTheData(updated: Point[]) {
     this.myScore.data = updated;
     this.isData = updated.length === 0 ? false : true;
     if (this.isData) {
       this.consolidate = this.myScore.getConsolidateData();
 
-      if(this.consolidate["ES"]["summaryES"]){
-        if(this.consolidate["ES"]["summaryES"].length>0){
-          this.tableForEs=true;
-          this.categsForEs=this.myScore.categoriesForES;
-          this.subcategsForEs=this.myScore.subCategForES;
-         }
+      if (this.consolidate["ES"]["summaryES"]) {
+        if (this.consolidate["ES"]["summaryES"].length > 0) {
+          this.tableForEs = true;
+          this.categsForEs = this.myScore.categoriesForES;
+          this.subcategsForEs = this.myScore.subCategForES;
+        }
       }
-      
-      if(this.consolidate["PT"]["summaryPT"]){
-        if(this.consolidate["PT"]["summaryPT"].length>0){
-          this.tableForPt=true;
-          this.categsForPt=this.myScore.categoriesForPT;
-          this.subcategsForPt=this.myScore.subCategForPT;
-         }
+
+      if (this.consolidate["PT"]["summaryPT"]) {
+        if (this.consolidate["PT"]["summaryPT"].length > 0) {
+          this.tableForPt = true;
+          this.categsForPt = this.myScore.categoriesForPT;
+          this.subcategsForPt = this.myScore.subCategForPT;
+        }
       }
     }
 
-    
+
   }
 
   goBack() {

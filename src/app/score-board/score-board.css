@@ -1,5 +1,13 @@
+.minheight{
+    height: fit-content;
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
 main>nav {
-    width: 100%;
+    width: 85%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -23,7 +31,7 @@ main>nav {
 h2,
 h3,
 .centerSection {
-    width: 100%;
+    width: 85%;
     margin-top: 20px;
     display: flex;
     flex-direction: row;
