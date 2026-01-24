@@ -4,9 +4,16 @@ span {
     margin-right: 10px;
 }
 
+.minheight{
+    height: fit-content;
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
 
 main>nav {
-    width: 100%;
+    width: 85%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -58,13 +65,15 @@ fieldset>div{
 
     fieldset, section{
         padding: 2%;
-        width: 95%;
+        width: 85%;
         display:flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 15px;
+        gap: 10px;
     }
+
+
 
 }
 

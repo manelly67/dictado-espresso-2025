@@ -7,6 +7,8 @@ import { sujeto } from '../sujeto';
 import { Conjugacion } from '../conjugacion';
 import { Point } from '../point';
 import { TopInPage } from '../top-in-page/top-in-page';
+import { Aside } from '../aside/aside';
+import { Footer } from '../footer/footer';
 import { Guardartexto } from '../guardartexto';
 import { Clear } from '../clear';
 import { EscribeS } from '../escribe';
@@ -19,7 +21,7 @@ import { Comparison } from '../comparison/comparison';
 
 @Component({
   selector: 'app-verb-base',
-  imports: [RouterLink, TopInPage, Escribe, Comparison],
+  imports: [RouterLink, TopInPage, Footer, Aside, Escribe, Comparison],
   templateUrl: './verb-base.html',
   styleUrl: './verb-base.css',
 })

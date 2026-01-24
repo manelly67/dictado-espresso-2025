@@ -1,6 +1,6 @@
 <app-top-in-page [es]="es" [pt]="pt" [mainTitle]="mainTitle"></app-top-in-page>
 
-<main>
+<main class="minheight">
     <nav>
         <a routerLink={{homeRoute}}>Home</a>
         <a (click)="goBack()">Go Back</a>
@@ -70,6 +70,9 @@
         }
 
     </div>
-
-
 </main>
+
+<app-aside [es]="es" [pt]="pt"></app-aside>
+<app-footer [es]="es" [pt]="pt"></app-footer>
+
+

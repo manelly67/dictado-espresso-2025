@@ -295,7 +295,7 @@
 @media screen and (min-width: 721px) {
 
     main {
-        margin-top: 1px;
+        margin-top: 10px;
         width: calc(100vw * 0.72);
     }
 

@@ -3,6 +3,8 @@ import { ActivatedRoute, RouterLink, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { TopInPage } from '../top-in-page/top-in-page';
+import { Aside } from '../aside/aside';
+import { Footer } from '../footer/footer';
 import { Audio } from '../audio/audio';
 import { Escribe } from '../escribe/escribe';
 import { Comparison } from '../comparison/comparison';
@@ -20,7 +22,7 @@ import { MyScore } from '../my-score';
 
 @Component({
   selector: 'app-dict-base',
-  imports: [TopInPage, Audio, Escribe, Comparison, RouterLink],
+  imports: [TopInPage, Aside, Footer, Audio, Escribe, Comparison, RouterLink],
   templateUrl: './dict-base.html',
   styleUrl: './dict-base.css',
 })

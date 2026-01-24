@@ -1,12 +1,20 @@
+.minheight{
+    height: fit-content;
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
 main>nav {
-    width: 100%;
+    width: 85%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 10px;
     padding: 3%;
-    font-size: large;
 }
+
 
 section {
     padding: 5%;

@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TopInPage } from '../top-in-page/top-in-page';
 import { BarraNavegacion } from '../barra-navegacion/barra-navegacion';
-
+import { Footer } from '../footer/footer';
 
 @Component({
   selector: 'app-home-pt',
-  imports: [TopInPage, BarraNavegacion],
+  imports: [TopInPage, BarraNavegacion, Footer],
   templateUrl: './home-pt.html',
   styleUrl: './home-pt.css',
 })

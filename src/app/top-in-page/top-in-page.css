@@ -29,6 +29,10 @@
         gap: 15px;
     }
 
+    .linkTo {
+        display: none;
+    }
+
 }
 
 
@@ -66,9 +70,6 @@
     h1 {
         margin-left: 8%;
     }
-
-   
-
 }
 
 .centerDiv {
