@@ -2,7 +2,7 @@
 @if(percentAciertos!==100){
     <div class="board">
         <p class="corrections">{{mostrarIndicador}}</p>
-     @for (item of nuevoArray; track item) {
+     @for (item of nuevoArray; track $index) {
             <p [ngClass]="item.includes(')')? 'wrong':'good'">{{item}}</p>
             } 
     </div>

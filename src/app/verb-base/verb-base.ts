@@ -1,18 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { NgClass } from '@angular/common';
 import { ActivatedRoute, RouterLink } from "@angular/router";
 import { Location } from '@angular/common';
 import { VerbosRegulares } from '../verbos-regulares';
 import { Verbo } from '../verbo';
 import { sujeto } from '../sujeto';
 import { Conjugacion } from '../conjugacion';
+import { Point } from '../point';
 import { TopInPage } from '../top-in-page/top-in-page';
 import { Guardartexto } from '../guardartexto';
 import { Clear } from '../clear';
 import { EscribeS } from '../escribe';
 import { CompararS } from '../comparar';
+import { MyScore } from '../my-score';
 import { Escribe } from '../escribe/escribe';
 import { Comparison } from '../comparison/comparison';
+
 
 
 @Component({
@@ -27,12 +29,12 @@ export class VerbBase implements OnInit {
   es?: boolean;
   pt?: boolean;
   nivel: string = 'pr';
-  
+
   mainTitle?: string;
   homeRoute?: string;
 
   divfortype?: boolean;
-  tenseDiv?:boolean;
+  tenseDiv?: boolean;
   activarBoton?: boolean;
 
   tiemposverbales: string[] = [];
@@ -63,13 +65,14 @@ export class VerbBase implements OnInit {
     public clear: Clear,
     public escribeService: EscribeS,
     public compararS: CompararS,
+    public myScore: MyScore,
   ) { }
 
   ngOnInit() {
     const lang = this.route.snapshot.paramMap.get('lang');
     this.tenseDiv = true;
-    this.divfortype = true;  
-    this.activarBoton = false;  
+    this.divfortype = true;
+    this.activarBoton = false;
     if (lang) {
       this.setTopByLang(lang);
       this.initVerbData(lang);
@@ -104,6 +107,7 @@ export class VerbBase implements OnInit {
       this.sujetoMax = this.verbosService.captarMaxSujES();
       this.conjugacion = this.verbosService.captarConjugES();
       this.idioma = 'es';
+      this.categoryScore = 'Verbos Regulares';
     }
     if (arg === 'pt') {
       this.tiemposverbales = this.verbosService.captarPTtiempos();
@@ -115,6 +119,7 @@ export class VerbBase implements OnInit {
       this.sujetoMax = this.verbosService.captarMaxSujPT();
       this.conjugacion = this.verbosService.captarConjugPT();
       this.idioma = 'pt';
+      this.categoryScore = 'Verbos Regulares';
     }
   }
 
@@ -142,7 +147,7 @@ export class VerbBase implements OnInit {
   }
 
   //capta seleccion de tiempo verbal
-  
+
   tiempoSeleccionado: string = '';
   tiempoAjustado: string = '';
   tiempoAjustado2: string = '';
@@ -171,9 +176,10 @@ export class VerbBase implements OnInit {
   numeroGenerado2: number = 0;
   verboGenerado: Verbo[] = [];
   verboString: string = '';
+  verboTranslation: string = '';
   ArErIr: string = '';
   baseVerbo: string = '';
-  sujetoGenerado: sujeto = { id: 0, sujeto: '', conjug: '', verbo: '', idioma: '' };
+  sujetoGenerado: sujeto = { id: 0, sujeto: '', conjug: '', verbo: '', idioma: '', translation:'' };
   sujetoString: string = '';
   conjugSujeto: string = '';
   grupodeVerbos: string = '';
@@ -200,6 +206,7 @@ export class VerbBase implements OnInit {
       this.verbosgrupo1,
       this.grupodeVerbos);
     this.verboString = this.verboGenerado[0].verbo;
+    this.verboTranslation = this.verboGenerado[0].translation;
     this.ArErIr = this.verboGenerado[0].terminacion;
     this.baseVerbo = this.verbosService.definirBase(this.verboString);
   }
@@ -255,6 +262,7 @@ export class VerbBase implements OnInit {
     this.aciertos = this.compararS.aciertos(this.nuevoArray);
     this.percentAciertos = this.compararS.porcentaje(this.nuevoArray, this.aciertos);
     this.mostrarIndicador = this.compararS.indicador(this.nuevoArray, this.percentAciertos);
+    this.setPoint(this.percentAciertos);
   }
 
   toogleSection() {
@@ -274,12 +282,31 @@ export class VerbBase implements OnInit {
     }
   }
 
-  resetPrev(){
+  resetPrev() {
     this.sujetoString = "";
     this.verboString = "";
+    this.verboTranslation = "";
     this.verboConjugado = "";
     this.verboGenerado = [];
     this.respuesta = "";
   }
+
+  // variables para el score-board
+  today: Date = new Date();
+  categoryScore: string = '';  
+
+  setPoint(percent: number) {
+    let lg: string = this.es ? 'es' : this.pt? 'pt': '';   
+    const point: Point = {
+      date: this.today.toISOString(),
+      language: lg,
+      category: this.categoryScore,
+      subcategory: this.tiempoSeleccionado,
+      percent: percent,
+    };
+    this.myScore.data.push(point);
+    this.myScore.sendToLocalStorage();
+  }
+
 
 }

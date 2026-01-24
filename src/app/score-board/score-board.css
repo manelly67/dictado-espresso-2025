@@ -1,0 +1,111 @@
+main>nav {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    padding: 3%;
+    font-size: large;
+}
+
+.center {
+    width: 100%;
+    padding-top: 3rem;
+    align-content: center;
+}
+
+.center>p {
+    text-align: center;
+    font-size: 19px;
+}
+
+
+h2,
+h3,
+.centerSection {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+    min-width: 350px;
+    max-width: 600px;
+   box-shadow: 0 1px 4px var(--color-shadow);
+}
+
+caption {
+    width: fit-content;
+    padding:0.4rem;
+    text-transform: capitalize;
+}
+
+
+
+th {
+    width: fit-content;
+    height: 100%;
+    align-items: center;
+    align-content: center;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    font-weight: 700;
+    text-wrap: wrap;
+}
+
+td {
+    text-align: center;
+    padding: 0.3rem;
+    height: 100%;
+    align-items: center;
+    align-content: center;
+}
+
+tbody, thead {
+    overflow-x: scroll;
+}
+
+caption,
+thead>tr,
+tfoot>tr {
+    background-color: var(--color-bg-second);
+}
+
+caption,
+th,
+td {
+    border: 1px solid rgb(160 160 160);
+}
+
+@media screen and (max-width: 600px) {
+   
+    th{
+        font-size: small;
+        overflow-wrap: break-word;
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    caption {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (min-width: 980px) {
+    caption {
+        font-size: 1.4rem;
+    }
+}

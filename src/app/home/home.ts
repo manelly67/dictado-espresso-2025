@@ -19,14 +19,16 @@ export class Home implements OnInit {
   pt?: boolean;
   mainTitle: string = "";
 
-  constructor(public router: Router) { }
- 
+  constructor(
+    public router: Router
+  ) { }
+
 
   ngOnInit() {
     // Initial title
-    if(!this.es){
-      this.es=true;
-      this.pt=false;
+    if (!this.es) {
+      this.es = true;
+      this.pt = false;
     }
     this.setContent();
   }
@@ -37,7 +39,7 @@ export class Home implements OnInit {
     }
     if (this.pt) {
       this.mainTitle = "Exercises to practice the Portuguese language"
-      this.router.navigate(['/pt']);        
+      this.router.navigate(['/pt']);
     }
   }
 

@@ -6,7 +6,6 @@ import { TopInPage } from '../top-in-page/top-in-page';
 import { Audio } from '../audio/audio';
 import { Escribe } from '../escribe/escribe';
 import { Comparison } from '../comparison/comparison';
-
 import { Categoria } from '../categoria';
 import { MsgCateg } from '../msg-categ';
 import { DefinirAudio } from '../definir-audio';
@@ -16,6 +15,8 @@ import { Guardartexto } from '../guardartexto';
 import { EscribeS } from '../escribe';
 import { Clear } from '../clear';
 import { CompararS } from '../comparar';
+import { Point } from '../point';
+import { MyScore } from '../my-score';
 
 @Component({
   selector: 'app-dict-base',
@@ -43,7 +44,9 @@ export class DictBase implements OnInit {
   /*text in html */
   texto1: string = '';
   texto2: string = '';
- 
+  texto3: { a: string, b: string } = { a: "", b: "" };
+  texto4: string = '';
+  texto5: string = '';
   mensajedealerta: string = "";
 
   constructor(
@@ -56,6 +59,7 @@ export class DictBase implements OnInit {
     public escribeService: EscribeS,
     public clear: Clear,
     public compararS: CompararS,
+    public myScore: MyScore,
   ) { }
 
   categoria = this.msgCateg.categoria;
@@ -142,10 +146,10 @@ export class DictBase implements OnInit {
   }
 
   mensaje(): string {
-    if (this.guardartexto.palabraseleccionada === '') {
+    if (this.guardartexto.palabraseleccionada == '') {
       return this.texto1;
     } else {
-      if (this.guardartexto.textodefinitivo === '') {
+      if (this.guardartexto.textodefinitivo == '') {
         return this.texto2;
       } else {
         return "";
@@ -172,7 +176,7 @@ export class DictBase implements OnInit {
       this.percentAciertos = this.compararS.porcentaje(this.nuevoArray, this.aciertos);
       this.mostrarIndicador = this.compararS.indicador(this.nuevoArray, this.percentAciertos);
       return;
-    } while (this.mensajedealerta === '');
+    } while (this.mensajedealerta == '');
 
   }
 
@@ -206,6 +210,24 @@ export class DictBase implements OnInit {
         });
       }
     }
+  }
+
+  // variables para el score-board
+  today: Date = new Date();
+  
+  setPoint() {
+    let lg: string = this.es ? 'es' : 'pt';
+    let categoryScore: string = this.filterObj? this.filterObj.modo : '';
+    let subcateg: string = this.filterObj? this.filterObj.nivel : '';   
+    const point: Point = {
+      date: this.today.toISOString(),
+      language: lg,
+      category: categoryScore,
+      subcategory: subcateg,
+      percent: this.percentAciertos,
+    };
+    this.myScore.data.push(point);
+    this.myScore.sendToLocalStorage();
   }
 
 }

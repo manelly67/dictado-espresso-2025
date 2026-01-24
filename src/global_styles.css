@@ -141,7 +141,8 @@
 
 
  .theme-light {
-     --color-bg-first: #F2E3A9;
+     --color-bg-first: azure;
+     --color-bg-second: #c7c6c6;
      --color-base-text1: #369;
      --color-base-text2: #444;
      --color-a: #883606;
@@ -156,6 +157,7 @@
 
  .theme-dark {
      --color-bg-first: #37556d;
+     --color-bg-second: #455a6b;
      --color-base-text1: #fff3d0;
      --color-base-text2: #fff3d0;
      --color-a: #A2BED2;
@@ -232,6 +234,11 @@
      line-height: 1.1;
  }
 
+ .eng {
+    color: var(--color-base-text1);
+    font-style: oblique;
+ }
+ 
  @media screen and (max-width: 980px) {
     p {
         font-size: 1.2em;

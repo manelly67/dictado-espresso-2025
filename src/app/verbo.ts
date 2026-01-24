@@ -5,5 +5,6 @@ export interface Verbo {
     tipo: string;
     verbo: string;
     idioma: string;
+    translation: string;
 
 }

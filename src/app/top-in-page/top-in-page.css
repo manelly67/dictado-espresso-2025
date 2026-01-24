@@ -78,10 +78,11 @@
 
 img {
     position: fixed;
-    left: 1%;
-    top: 1.5%;
+    left: 1.2%;
+    top: 1.7%;
     box-shadow: 0 1px 4px var(--color-shadow);
 }
+
 
 @media screen and (min-width: 1200px) {
 

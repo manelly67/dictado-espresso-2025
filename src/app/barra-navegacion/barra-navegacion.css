@@ -63,3 +63,12 @@ a {
     font-size: 1.1rem;
     margin-left: 20px;
 }
+
+.scorelink {
+    color: var(--color-sphere-2);
+    text-decoration: none;
+}
+
+.scorediv {
+    background-color: azure;
+}

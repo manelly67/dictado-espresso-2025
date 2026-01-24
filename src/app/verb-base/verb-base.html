@@ -21,17 +21,6 @@
     }
 
 
-    <!-- <p>la seleccion es {{tiempoSeleccionado}}</p>
-    <p>part 1 {{tiempoAjustado}}</p>
-    <p>part 2 {{tiempoAjustado2}}</p> 
- <p>los numeros son {{numeroGenerado}} -{{numeroGeneradogrupo1}} -{{numeroGenerado2}}</p>
-    <p>el sujeto es {{sujetoString}}-{{conjugSujeto}}-{{grupodeVerbos}}</p>
-    <p>el verbo es {{verboString}} - {{ArErIr}} - {{baseVerbo}} - {{verboConjugado}}</p>
- <p>el verbo es {{verboString}} - {{ArErIr}} - {{baseVerbo}} - {{verboConjugado}}</p>
--->
-
-
-
     @if(activarBoton){
     <div>
         <p>The verbal tense is:</p>
@@ -58,10 +47,10 @@
 
     <section>
         <div>
-            <p>The subject is: <span>{{sujetoString.toUpperCase()}}</span></p>
+            <p>The subject is: <span>{{sujetoString.toUpperCase()}} </span>  (<span class="eng">{{sujetoGenerado.translation}}</span>)</p>
         </div>
         <div>
-            <p>The verb is: <span>{{verboString.toUpperCase()}}</span></p>
+            <p>The verb is: <span>{{verboString.toUpperCase()}}</span> (<span class="eng">{{verboTranslation}}</span>)</p>
         </div>
     </section>
     <section>
@@ -101,7 +90,7 @@
 
         <section>
             @if(verboConjugado){
-                <div style="padding-bottom: 20px;">
+                <div style="padding-bottom: 10px;">
                     <div>
                         <p class="subtitle">The correct verb conjugation is:</p>
                         <p class="frase">{{verboConjugado}}</p>

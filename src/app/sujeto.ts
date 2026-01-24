@@ -5,5 +5,6 @@ export interface sujeto {
     conjug: string;
     verbo: string;
     idioma: string;
+    translation: string;
 
 }

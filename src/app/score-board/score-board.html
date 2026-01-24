@@ -1,0 +1,226 @@
+<app-top-in-page [es]="es" [pt]="pt" [mainTitle]="mainTitle"></app-top-in-page>
+
+<main>
+    <nav>
+        <a routerLink={{homeRoute}}>Home</a>
+        <a (click)="goBack()">Go Back</a>
+    </nav>
+
+    <h2 class="capitalize">{{title}}</h2>
+
+    @if(!isData){
+
+    <section class="center">
+        <p class="capitalize">{{text1}}</p>
+        <p class="capitalize eng">no data to display</p>
+    </section>
+
+    }
+
+    @if(isData){
+    @if(tableForEs){
+    <section>
+        <h2>Your Spanish Practice</h2>
+        @for (item of categsForEs; track $index) {
+        <h3>{{item}}</h3>
+        @if(item.includes('write')){
+        @for(subC_a of audioSubCategEs; track $index){
+        @if(subcategsForEs.includes(subC_a)){
+        <div class="centerSection">
+            <table>
+                <caption>{{subC_a}}</caption>
+                <thead>
+                    <tr>
+                        <th scope="col" rowspan="2">Date</th>
+                        <th scope="col" rowspan="2">Total</th>
+                        <th scope="col" colspan="4">Your Performance</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">PERFECT</th>
+                        <th scope="col">Good Job</th>
+                        <th scope="col">Need To Improve</th>
+                        <th scope="col">WRONG</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(element of consolidate["ES"]["summaryES"];track $index){
+                    @if(element.category===item && element.subcategory===subC_a){
+                    <tr>
+                        <td> {{element.date}} </td>
+                        <td> {{element.total}} </td>
+                        <td> {{element.perfect}} </td>
+                        <td> {{element.goodWork}} </td>
+                        <td> {{element.needImprove}} </td>
+                        <td> {{element.wrongs}} </td>
+
+                    </tr>
+                    }
+                    }
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td>Total</td>
+                    <td> {{ consolidate["ES"]["summaryES"] |searchFilter:item:subC_a |fieldSum:'total'}}</td>
+                    <td> {{ consolidate["ES"]["summaryES"] |searchFilter:item:subC_a |fieldSum:'perfect'}}</td>
+                    <td> {{ consolidate["ES"]["summaryES"] |searchFilter:item:subC_a |fieldSum:'goodWork'}}</td>
+                    <td> {{ consolidate["ES"]["summaryES"] |searchFilter:item:subC_a |fieldSum:'needImprove'}}</td>
+                    <td> {{ consolidate["ES"]["summaryES"] |searchFilter:item:subC_a |fieldSum:'wrongs'}}</td> 
+                  </tr>
+                </tfoot>
+            </table>
+        </div>
+        }
+        }
+        }
+
+        @if(item.includes('Verb')){
+        @for(subC_b of verbSubCategEs; track $index){
+        @if(subcategsForEs.includes(subC_b)){
+            <div class="centerSection">
+                <table>
+                    <caption>{{subC_b}}</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col" rowspan="2">Date</th>
+                            <th scope="col" rowspan="2">Total</th>
+                            <th scope="col" colspan="2">Your Performance</th>
+                        </tr>
+                        <tr>
+                            <th scope="col">PERFECT</th>
+                            <th scope="col">WRONG</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for(element of consolidate["ES"]["summaryES"];track $index){
+                        @if(element.category===item && element.subcategory===subC_b){
+                        <tr>
+                            <td> {{element.date}} </td>
+                            <td> {{element.total}} </td>
+                            <td> {{element.perfect}} </td>
+                            <td> {{element.wrongs}} </td>
+    
+                        </tr>
+                        }
+                        }
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <td>Total</td>
+                        <td> {{ consolidate["ES"]["summaryES"] |searchFilter:item:subC_b |fieldSum:'total'}}</td>
+                        <td> {{ consolidate["ES"]["summaryES"] |searchFilter:item:subC_b |fieldSum:'perfect'}}</td>
+                        <td> {{ consolidate["ES"]["summaryES"] |searchFilter:item:subC_b |fieldSum:'wrongs'}}</td>
+                      </tr>
+                    </tfoot>
+                </table>
+            </div>
+        }
+        }
+        }
+        }
+    </section>
+    }
+
+    @if(tableForPt){
+    <section>
+        <h2>Your Portuguese Practice</h2>
+        @for (item of categsForPt; track $index) {
+        <h3>{{item}}</h3>
+        @if(item.includes('write')){
+        @for(subC_c of audioSubCategPt; track $index){
+        @if(subcategsForPt.includes(subC_c)){
+            <div class="centerSection">
+                <table>
+                    <caption>{{subC_c}}</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col" rowspan="2">Date</th>
+                            <th scope="col" rowspan="2">Total</th>
+                            <th scope="col" colspan="4">Your Performance</th>
+                        </tr>
+                        <tr>
+                            <th scope="col">PERFECT</th>
+                            <th scope="col">Good Job</th>
+                            <th scope="col">Need To Improve</th>
+                            <th scope="col">WRONG</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for(element of consolidate["PT"]["summaryPT"];track $index){
+                        @if(element.category===item && element.subcategory===subC_c){
+                        <tr>
+                            <td> {{element.date}} </td>
+                            <td> {{element.total}} </td>
+                            <td> {{element.perfect}} </td>
+                            <td> {{element.goodWork}} </td>
+                            <td> {{element.needImprove}} </td>
+                            <td> {{element.wrongs}} </td>
+                        </tr>
+                        }
+                        }
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <td>Total</td>
+                        <td> {{ consolidate["PT"]["summaryPT"] |searchFilter:item:subC_c |fieldSum:'total'}}</td>
+                        <td> {{ consolidate["PT"]["summaryPT"] |searchFilter:item:subC_c |fieldSum:'perfect'}}</td>
+                        <td> {{ consolidate["PT"]["summaryPT"] |searchFilter:item:subC_c |fieldSum:'goodWork'}}</td>
+                        <td> {{ consolidate["PT"]["summaryPT"] |searchFilter:item:subC_c |fieldSum:'needImprove'}}</td>
+                        <td> {{ consolidate["PT"]["summaryPT"] |searchFilter:item:subC_c |fieldSum:'wrongs'}}</td> 
+                      </tr>
+                    </tfoot>
+                </table>
+            </div>
+        }
+        }
+        }
+
+        @if(item.includes('Verb')){
+        @for(subC_d of verbSubCategPt; track $index){
+        @if(subcategsForPt.includes(subC_d)){
+            <div class="centerSection">
+                <table>
+                    <caption>{{subC_d}}</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col" rowspan="2">Date</th>
+                            <th scope="col" rowspan="2">Total</th>
+                            <th scope="col" colspan="2">Your Performance</th>
+                        </tr>
+                        <tr>
+                            <th scope="col">PERFECT</th>
+                            <th scope="col">WRONG</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for(element of consolidate["PT"]["summaryPT"];track $index){
+                        @if(element.category===item && element.subcategory===subC_d){
+                        <tr>
+                            <td> {{element.date}} </td>
+                            <td> {{element.total}} </td>
+                            <td> {{element.perfect}} </td>
+                            <td> {{element.wrongs}} </td>
+                        </tr>
+                        }
+                        }
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <td>Total</td>
+                        <td> {{ consolidate["PT"]["summaryPT"] |searchFilter:item:subC_d |fieldSum:'total'}}</td>
+                        <td> {{ consolidate["PT"]["summaryPT"] |searchFilter:item:subC_d |fieldSum:'perfect'}}</td>
+                        <td> {{ consolidate["PT"]["summaryPT"] |searchFilter:item:subC_d |fieldSum:'wrongs'}}</td>
+                      </tr>
+                    </tfoot>
+                </table>
+            </div>
+        }
+
+        }
+        }
+
+        }
+    </section>
+    }
+    }
+
+</main>

@@ -6,6 +6,7 @@ import { DictPT } from './dict-pt/dict-pt';
 import { DictES } from './dict-es/dict-es';
 import { DictBase } from './dict-base/dict-base';
 import { VerbBase } from './verb-base/verb-base';
+import { ScoreBoard } from './score-board/score-board';
 import { ErrorPage } from './error-page/error-page';
 
 import { About } from './about/about';
@@ -39,6 +40,10 @@ export const APP_ROUTES: Routes = [
   {
     path: 'verbs/:lang',
     loadComponent: () => import('./verb-base/verb-base').then((m) => m.VerbBase),
+  },
+  {
+    path: 'scoreboard/:lang',
+    loadComponent: () => import('./score-board/score-board').then((m) => m.ScoreBoard),
   },
 
 
