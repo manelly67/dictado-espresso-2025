@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 import { Point } from '../point';
 import { MyScore } from '../my-score';
 import { TopInPage } from '../top-in-page/top-in-page';
-import {EStiemposverbales} from '../tiemposverbales-es';
+import { EStiemposverbales } from '../tiemposverbales-es';
 import { PTtiemposverbales } from '../tiemposverbales-pt';
 import { FieldSumPipe } from '../field-sum-pipe';
 import { SearchFilterPipe } from '../search-filter-pipe';
@@ -23,7 +23,7 @@ export class ScoreBoard implements OnInit {
   title?: string;
   text1?: string;
   data: Point[] = [];
-  isData?: boolean;
+  isData: boolean=false;
   consolidate: any = new Object();
   tableForEs:boolean=false;
   tableForPt:boolean=false;
@@ -46,22 +46,9 @@ export class ScoreBoard implements OnInit {
     const lang = this.route.snapshot.paramMap.get('lang');
     if (lang) {
       this.setTopByLang(lang);
-    }
-    this.myScore.getFromLocalStorage();
-    this.data = this.myScore.data;
-    this.isData = this.myScore.data.length === 0 ? false : true;
-    if (this.isData) {
-     this.consolidate = this.myScore.getConsolidateData();
-     if(this.consolidate["ES"]["summaryES"].length>0){
-      this.tableForEs=true;
-      this.categsForEs=this.myScore.categoriesForES;
-      this.subcategsForEs=this.myScore.subCategForES;
-     }
-     if(this.consolidate["PT"]["summaryPT"].length>0){
-      this.tableForPt=true;
-      this.categsForPt=this.myScore.categoriesForPT;
-      this.subcategsForPt=this.myScore.subCategForPT;
-     }
+      const storedData = localStorage.getItem("scoredata");
+      this.data = storedData ? JSON.parse(storedData) : [];
+      this.handleTheData(this.data);
     }
   }
 
@@ -91,6 +78,32 @@ export class ScoreBoard implements OnInit {
   ptFn() {
     this.title = 'quadro de desempenho';
     this.text1 = 'não há dados para mostrar';
+  }
+
+  handleTheData(updated:Point[]){
+    this.myScore.data = updated;
+    this.isData = updated.length === 0 ? false : true;
+    if (this.isData) {
+      this.consolidate = this.myScore.getConsolidateData();
+
+      if(this.consolidate["ES"]["summaryES"]){
+        if(this.consolidate["ES"]["summaryES"].length>0){
+          this.tableForEs=true;
+          this.categsForEs=this.myScore.categoriesForES;
+          this.subcategsForEs=this.myScore.subCategForES;
+         }
+      }
+      
+      if(this.consolidate["PT"]["summaryPT"]){
+        if(this.consolidate["PT"]["summaryPT"].length>0){
+          this.tableForPt=true;
+          this.categsForPt=this.myScore.categoriesForPT;
+          this.subcategsForPt=this.myScore.subCategForPT;
+         }
+      }
+    }
+
+    
   }
 
   goBack() {

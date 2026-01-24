@@ -1,10 +1,10 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Point } from './point';
 
 @Injectable({
   providedIn: 'root',
 })
-export class MyScore implements OnInit {
+export class MyScore {
 
   data: Point[] = [];
   categoriesForES: string[] = [];
@@ -12,20 +12,10 @@ export class MyScore implements OnInit {
   subCategForES: string[] = [];
   subCategForPT: string[] = [];
 
-  ngOnInit(): void {
-    this.getFromLocalStorage();
-  }
-
   sendToLocalStorage() {
     localStorage.setItem("scoredata", JSON.stringify(this.data));
   }
 
-  getFromLocalStorage() {
-    let tempdata = localStorage.getItem("scoredata");
-    if (tempdata) {
-      this.data = JSON.parse(tempdata);
-    }
-  }
 
   getConsolidateData() {
     let consolidate: any = new Object();
