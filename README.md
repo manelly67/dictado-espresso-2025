@@ -35,3 +35,7 @@ In this project I use a custom Pipe with PipeTransform for filter and sum fields
 ### Routing
 
 This project uses standalone components with Angular Router, enabling modular, module-free routing.  All route configurations are defined in app.routes.ts . The RouterOutlet directive was imported directly in the app component, and navigation was handled using routerLink without requiring RouterModule in every component.
+
+### StackBlitz
+
+Project Built and tested in StackBlitz, a cloud-based integrated development environment(IDE)

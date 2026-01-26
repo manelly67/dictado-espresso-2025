@@ -26,7 +26,7 @@
         @if(subcategsForEs.includes(subC_a)){
         <div class="centerSection">
             <table>
-                <caption>{{subC_a}}</caption>
+                <caption>{{subC_a}}<span>*</span></caption>
                 <thead>
                     <tr>
                         <th scope="col" rowspan="2">Date</th>
@@ -76,7 +76,7 @@
         @if(subcategsForEs.includes(subC_b)){
             <div class="centerSection">
                 <table>
-                    <caption>{{subC_b}}</caption>
+                    <caption>{{subC_b}}<span>*</span></caption>
                     <thead>
                         <tr>
                             <th scope="col" rowspan="2">Date</th>
@@ -127,7 +127,7 @@
         @if(subcategsForPt.includes(subC_c)){
             <div class="centerSection">
                 <table>
-                    <caption>{{subC_c}}</caption>
+                    <caption>{{subC_c}}<span>*</span></caption>
                     <thead>
                         <tr>
                             <th scope="col" rowspan="2">Date</th>
@@ -176,7 +176,7 @@
         @if(subcategsForPt.includes(subC_d)){
             <div class="centerSection">
                 <table>
-                    <caption>{{subC_d}}</caption>
+                    <caption>{{subC_d}}<span>*</span></caption>
                     <thead>
                         <tr>
                             <th scope="col" rowspan="2">Date</th>
@@ -219,7 +219,10 @@
     </section>
     }
     }
-
+    @if(isData){
+        <div class="marginNote"><p>* last 3 dates</p></div>
+    }
+   
 </main>
 
 <app-aside [es]="es" [pt]="pt"></app-aside>
